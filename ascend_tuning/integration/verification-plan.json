@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "execution_status": "PLANNED_NOT_EXECUTED",
+  "automatic_tasks_enabled": false,
+  "actual_new_model_runs": 0,
+  "approach": "先冻结每模型一个组合候选，复用已有证据和同次服务生命周期，集中完成联合验证；仅在失败或新增变化时定向补测。",
+  "required_runtime_access": "Available authorized hardware, exact image/SDK/model/config identity; actual execution through local ZCode DeepSeek.",
+  "gates": [
+    {
+      "id": "SOURCE",
+      "title": "冻结源码、依赖与变更范围",
+      "checks": "核对基础提交、文件SHA、profile边界、参数化配置、同路径冲突、修改差异、SDK ABI及实际启动配置；复用现有CPU完整性检查。",
+      "status": "pending",
+      "latest_result": null
+    },
+    {
+      "id": "COMPONENT",
+      "title": "只复测受修改影响的组件",
+      "checks": "复用已匹配源码/硬件的原证据；改变接口、dtype、布局或kernel时补对应shape、空输入/尾部、并行组及Graph边界；不无条件重做全部历史实验。",
+      "status": "pending",
+      "latest_result": null
+    },
+    {
+      "id": "FLASH-FUNCTIONAL",
+      "title": "同一冻结候选下的Flash联合功能验证",
+      "checks": "按声明配置联合检查实际权重和量化、输出数值、C1/C2状态隔离、原生SDMA/内容、前缀checkpoint/恢复、80K600、取消/回收/退出；Graph/MTP/EP或L3仅在声明支持时加入。",
+      "status": "pending",
+      "latest_result": null
+    },
+    {
+      "id": "FLASH-PERF",
+      "title": "Flash代表性C32性能",
+      "checks": "沿用该模型已确认合同：80000输入/600输出、C32、128正式请求，32独立74400前缀及四轮新后缀；预热单列。实际命中、延迟/吞吐、失败和运行排队如实保存。当前没有合格SGLang C32结果。",
+      "status": "pending",
+      "latest_result": null
+    },
+    {
+      "id": "GLM-FUNCTIONAL",
+      "title": "普通W8A8联合功能验证",
+      "checks": "与Flash分开：nativeSDMA、MemCache/L3来源和实际命中、buffer_only、MTP5/targetGraph、精度及清理；检查实际拓扑和每DP容量。",
+      "status": "pending",
+      "latest_result": null
+    },
+    {
+      "id": "GLM-PERF",
+      "title": "普通W8A8代表性C32性能",
+      "checks": "从对应项目最新已确认合同恢复，不复制Flash合同或历史另一套平台指标；预热排除，保存原始请求、失败、真实运行排队与整体分位数。",
+      "status": "pending",
+      "latest_result": null
+    },
+    {
+      "id": "C8-FUNCTIONAL",
+      "title": "C8缓冲配置联合功能验证",
+      "checks": "匹配量化、角色、HCCL/DeepEP分配和真实P/D请求；启动成功不替代真实请求/正确性。",
+      "status": "pending",
+      "latest_result": null
+    },
+    {
+      "id": "C8-PERF",
+      "title": "C8性能资格",
+      "checks": "仅在请求功能验证后测代表性配置；报告内存与服务收益各自范围。",
+      "status": "pending",
+      "latest_result": null
+    }
+  ],
+  "records_required": [
+    "candidate_commit",
+    "base_source_commit",
+    "image_identity",
+    "sdk_and_native_binary_identity",
+    "model_quantization_identity",
+    "resolved_parallel_topology",
+    "feature_flags",
+    "request_protocol",
+    "raw_evidence_hashes",
+    "correctness_verdict",
+    "performance_scope",
+    "failures",
+    "rollback_version"
+  ],
+  "merge_rules": {
+    "development": "Resolve source conflicts and affected correctness before integrating; experimental code remains disabled and clearly scoped.",
+    "stable": "Only the exact frozen combination and declared supported profiles that passed unified real-hardware validation.",
+    "upstream_upgrade": "Separate candidate on pinned upstream target; compare upstream fixes, retire duplicates, port remaining minimal patches, then use affected model gates."
+  }
+}

@@ -1,0 +1,557 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-10-19",
+  "source_collection_commit": "f00640d8539394d62441627810a218a1caf71601",
+  "actual_new_model_runs": 0,
+  "actual_runtime_merges": 0,
+  "stable_release_qualified": false,
+  "default_enable_new_items": false,
+  "integration_after_semantics": "Proposed order for this collection, not a universal hardware or algorithm dependency.",
+  "items": [
+    {
+      "id": "F-BASE",
+      "title": "Flash模型加载、ModelSlim与基础attention接入",
+      "model": "GLM-5.3-Flash-W8A8",
+      "category": "adaptation",
+      "development_merge": "retain_baseline_then_port",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "历史TP16 eager小批次文本PD通过；不代表全面数值资格。",
+      "integration_after": [],
+      "required_validation": [
+        "SOURCE",
+        "COMPONENT",
+        "FLASH-FUNCTIONAL"
+      ],
+      "notes": [
+        "历史内部参考并非官方质量金标准；后续logprob阈值失败原样保留。"
+      ],
+      "source_paths": [
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/attention/ascend_backend.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/flash_mhc_fixed_rows.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/flash_sparse_nope_npu.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/modules/deepseek_v2_attention_mla_npu.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/modules/flash_dsa_nope_npu.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/layers/attention/attention_registry.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/layers/attention/dsa/dsa_indexer_kpool.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/layers/quantization/modelslim/flash_modelslim_fp32_scales.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/layers/quantization/modelslim/modelslim.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/schedule_policy.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/scheduler.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/tokenizer_manager.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/models/deepseek_v2.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/models/glm5_next.py"
+      ]
+    },
+    {
+      "id": "F-STATE",
+      "title": "Flash压缩KV、KDA卷积/SSM与FP32尾部持久状态",
+      "model": "GLM-5.3-Flash-W8A8",
+      "category": "correctness",
+      "development_merge": "retain_baseline_then_port",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "R176真实C2持久存储回归；8704个conv/SSM范围哈希匹配。",
+      "integration_after": [
+        "F-BASE"
+      ],
+      "required_validation": [
+        "SOURCE",
+        "COMPONENT",
+        "FLASH-FUNCTIONAL"
+      ],
+      "notes": [],
+      "source_paths": [
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/attention/flash_kda_backend_npu.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/flash_kpool_memory_pool_npu.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_compression.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_owned_boundary_npu.py"
+      ]
+    },
+    {
+      "id": "F-SDMA",
+      "title": "Flash原生SDMA与混合状态PD交接",
+      "model": "GLM-5.3-Flash-W8A8",
+      "category": "adaptation",
+      "development_merge": "resolve_shared_files_then_integrate",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "R113/R176真实传输及内容核对；R247汇总704次成功写入。",
+      "integration_after": [
+        "F-STATE"
+      ],
+      "required_validation": [
+        "SOURCE",
+        "FLASH-FUNCTIONAL"
+      ],
+      "notes": [
+        "与普通GLM的conn.py和transfer_engine.py版本不同，不互相覆盖。",
+        "发布时有地址参数化；参数化路径需要新实机复测。"
+      ],
+      "source_paths": [
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/ascend/conn.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/ascend/transfer_engine.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/common/conn.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/decode.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/mooncake/conn.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/prefill.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/disagg_service.py"
+      ]
+    },
+    {
+      "id": "F-PREFIX",
+      "title": "Flash前缀checkpoint与恢复",
+      "model": "GLM-5.3-Flash-W8A8",
+      "category": "correctness",
+      "development_merge": "retain_baseline_then_port",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "R195复核R190原始证据：544条状态恢复逐字节一致，单组80K/600功能及74368本地前缀命中。",
+      "integration_after": [
+        "F-SDMA"
+      ],
+      "required_validation": [
+        "SOURCE",
+        "FLASH-FUNCTIONAL"
+      ],
+      "notes": [
+        "本地前缀状态验证不构成MemCache/L3证明；原R190整体FAIL不改写。"
+      ],
+      "source_paths": [
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/memory_pool_npu.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/mem_cache/memory_pool.py"
+      ]
+    },
+    {
+      "id": "F-LIFECYCLE",
+      "title": "Flash请求上下文、取消回收与正常退出",
+      "model": "GLM-5.3-Flash-W8A8",
+      "category": "correctness",
+      "development_merge": "retain_baseline_then_port",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "R116一次取消与5组后续正常请求；P先停写、D后释放以及原生退出通过。",
+      "integration_after": [
+        "F-SDMA"
+      ],
+      "required_validation": [
+        "SOURCE",
+        "FLASH-FUNCTIONAL"
+      ],
+      "notes": [],
+      "source_paths": [
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/flash_pd_request_context.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/flash_pd_sdk_shutdown.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/flash_pd_shutdown.py"
+      ]
+    },
+    {
+      "id": "F-STRIDE",
+      "title": "Indexer动态页表步长消除重复编译",
+      "model": "GLM-5.3-Flash-W8A8",
+      "category": "performance",
+      "development_merge": "priority_scoped_integration",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "R246六种宽度输出逐字节一致，gather/score编译变体各6变1；R247有真实模型采样。",
+      "integration_after": [
+        "F-BASE"
+      ],
+      "required_validation": [
+        "SOURCE",
+        "COMPONENT",
+        "FLASH-FUNCTIONAL",
+        "FLASH-PERF"
+      ],
+      "notes": [
+        "与query分工合并后的6.31x/7.71x是窗口收益，不独立归因也不外推完整C32。"
+      ],
+      "source_paths": [
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_score.py"
+      ]
+    },
+    {
+      "id": "F-QUERY",
+      "title": "Indexer按实际attention TP组切分查询并汇合索引",
+      "model": "GLM-5.3-Flash-W8A8",
+      "category": "performance",
+      "development_merge": "priority_scoped_integration",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "R246真实TP16的80组比较一致；算子包含真实HCCL；R247真实模型窗口验证。",
+      "integration_after": [
+        "F-STRIDE"
+      ],
+      "required_validation": [
+        "SOURCE",
+        "COMPONENT",
+        "FLASH-FUNCTIONAL",
+        "FLASH-PERF"
+      ],
+      "notes": [
+        "不得用历史eager caller覆盖更新的MTP扩展caller。",
+        "R210 TP8组件通过不等于整模型DP/EP/PD已对齐。"
+      ],
+      "source_paths": [
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_indexer_query_parallel.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_indexer_npu.py"
+      ]
+    },
+    {
+      "id": "F-OBSERVABILITY",
+      "title": "Flash审计与测试门控",
+      "model": "GLM-5.3-Flash-W8A8",
+      "category": "observability_test",
+      "development_merge": "separate_test_hooks_from_runtime",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "历史ABI、指针、状态和生命周期诊断支撑上述验收。",
+      "integration_after": [
+        "F-BASE"
+      ],
+      "required_validation": [
+        "SOURCE",
+        "FLASH-FUNCTIONAL"
+      ],
+      "notes": [
+        "逐层哈希、CPU审计与测试Prefill等待门控不作为生产默认优化。",
+        "不能只因文件名含audit就删文件；先检查调用依赖。"
+      ],
+      "source_paths": [
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/ascend/flash_b103_pd_events.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/ascend/flash_b103_pd_inventory_audit.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/ascend/sdma_payload_hash.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/attention/flash_b103_pd_state_audit.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/attention/flash_kda_prefix_once_audit.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_indexer_projection_audit.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_compression_abi_audit.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_model_audit_npu.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_score_abi_audit.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/flash_mhc_binding_audit.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/flash_pd_lifetime_audit.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/flash_pd_prefill_gate.py",
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/models/flash_parameter_audit.py"
+      ]
+    },
+    {
+      "id": "F-QUANT-COMPONENT",
+      "title": "PRE-SiLU截断及FP32专家缩放/GMM组件",
+      "model": "GLM-5.3-Flash-W8A8",
+      "category": "correctness_candidate",
+      "development_merge": "hold_until_full_model_integration",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "R213截断/量化32例通过；R214保留F32反量化8例及padding通过；R229 fast/C eager与Graph组件通过。",
+      "integration_after": [
+        "F-BASE"
+      ],
+      "required_validation": [
+        "SOURCE",
+        "COMPONENT",
+        "FLASH-FUNCTIONAL"
+      ],
+      "notes": [
+        "组件源码不作为当前47文件profile中已完整部署的能力；需从对应冻结运行提取并绑定身份。",
+        "FP32源值不得直接降精度；fast路径只允许验证过的可精确表示scale和回退条件。"
+      ],
+      "source_paths": []
+    },
+    {
+      "id": "F-MTP-COMPONENT",
+      "title": "MTP相关KDA、已接受行及FP32尾部组件",
+      "model": "GLM-5.3-Flash-W8A8",
+      "category": "correctness_candidate",
+      "development_merge": "hold_until_full_model_integration",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "R220单NPU八组KDA、225个尾部计划及变化Graph回放通过。",
+      "integration_after": [
+        "F-STATE"
+      ],
+      "required_validation": [
+        "SOURCE",
+        "COMPONENT",
+        "FLASH-FUNCTIONAL"
+      ],
+      "notes": [
+        "profile包含其中已测kernel；组件通过不等于整模型MTP5或Graph已通过。"
+      ],
+      "source_paths": [
+        "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/kernels/ops/attention/fla/fused_sigmoid_gating_recurrent.py"
+      ]
+    },
+    {
+      "id": "F-FULL-CONFIG",
+      "title": "Flash完整Graph/MTP及DP/TP/EP配置整合",
+      "model": "GLM-5.3-Flash-W8A8",
+      "category": "integration_candidate",
+      "development_merge": "hold_unreviewed_unrun",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "R248为未部署、未运行、未完整审查的源码草稿。",
+      "integration_after": [
+        "F-QUERY",
+        "F-QUANT-COMPONENT",
+        "F-MTP-COMPONENT",
+        "F-LIFECYCLE"
+      ],
+      "required_validation": [
+        "SOURCE",
+        "COMPONENT",
+        "FLASH-FUNCTIONAL",
+        "FLASH-PERF"
+      ],
+      "notes": [
+        "当前公开profile是TP16/DP1/EP1/eager/MTP-off；不能描述为已对齐vLLM。"
+      ],
+      "source_paths": []
+    },
+    {
+      "id": "F-L3",
+      "title": "Flash外部MemCache/L3接入",
+      "model": "GLM-5.3-Flash-W8A8",
+      "category": "unqualified_capability",
+      "development_merge": "hold_no_complete_qualification",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "没有Flash整套L3资格证据；普通GLM成果不能直接借用。",
+      "integration_after": [
+        "F-PREFIX"
+      ],
+      "required_validation": [
+        "SOURCE",
+        "COMPONENT",
+        "FLASH-FUNCTIONAL",
+        "FLASH-PERF"
+      ],
+      "notes": [],
+      "source_paths": []
+    },
+    {
+      "id": "G-SDMA",
+      "title": "普通GLM原生SDMA接入",
+      "model": "GLM-5.3-W8A8",
+      "category": "adaptation",
+      "development_merge": "resolve_shared_files_then_integrate",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "普通W8A8历史功能及C32整体证据存在。",
+      "integration_after": [],
+      "required_validation": [
+        "SOURCE",
+        "GLM-FUNCTIONAL",
+        "GLM-PERF"
+      ],
+      "notes": [
+        "源码含历史身份断言；与Flash公共路径差异需要模型化适配。"
+      ],
+      "source_paths": [
+        "ascend_tuning/profiles/glm53-w8a8-historical/overlay/sglang/srt/disaggregation/ascend/transfer_engine.py",
+        "ascend_tuning/profiles/glm53-w8a8-historical/overlay/sglang/srt/disaggregation/ascend/conn.py",
+        "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_sglang_sdma_audit.py"
+      ]
+    },
+    {
+      "id": "G-MEMCACHE",
+      "title": "普通GLM原生MemCache/HiCache及映射复用",
+      "model": "GLM-5.3-W8A8",
+      "category": "adaptation",
+      "development_merge": "retain_baseline_then_port",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "历史native SDK、buffer_only与缓存功能随接受过的C32配置保留。",
+      "integration_after": [
+        "G-SDMA"
+      ],
+      "required_validation": [
+        "SOURCE",
+        "COMPONENT",
+        "GLM-FUNCTIONAL",
+        "GLM-PERF"
+      ],
+      "notes": [
+        "匹配MF/MC ABI；SDK原生扩展需按匹配版本构建，不自动加载旧sitecustomize。"
+      ],
+      "source_paths": [
+        "ascend_tuning/profiles/glm53-w8a8-historical/support/provider.py",
+        "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_C32_hicache_native_mtp_v1.py",
+        "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_C32_native_MC_mapping_reuse_v1.py",
+        "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_C32_hicache_native_import_hook_v2.py"
+      ]
+    },
+    {
+      "id": "G-GRAPH-MTP",
+      "title": "普通GLM target Graph与eager draft MTP5",
+      "model": "GLM-5.3-W8A8",
+      "category": "adaptation",
+      "development_merge": "retain_baseline_then_port",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "L12D历史整套配置389.8741输出tok/s；不能把整体成绩归给每个子机制。",
+      "integration_after": [
+        "G-MEMCACHE"
+      ],
+      "required_validation": [
+        "SOURCE",
+        "GLM-FUNCTIONAL",
+        "GLM-PERF"
+      ],
+      "notes": [],
+      "source_paths": [
+        "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_C32_target_graph_fullmesh_v2.py"
+      ]
+    },
+    {
+      "id": "G-DEEPEP",
+      "title": "普通GLM DeepEP元数据批量处理",
+      "model": "GLM-5.3-W8A8",
+      "category": "runtime_support",
+      "development_merge": "integrate_only_with_matched_bundle",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "历史支持代码已归档；本次未提取独立端到端收益。",
+      "integration_after": [
+        "G-SDMA"
+      ],
+      "required_validation": [
+        "SOURCE",
+        "COMPONENT",
+        "GLM-FUNCTIONAL",
+        "GLM-PERF"
+      ],
+      "notes": [],
+      "source_paths": [
+        "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_deepep_metadata_batch_v1.py",
+        "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_deepep_metadata_import_hook_v1.py"
+      ]
+    },
+    {
+      "id": "G-SUPPORT",
+      "title": "普通GLM环境核验、原生扩展及服务支持",
+      "model": "GLM-5.3-W8A8",
+      "category": "deployment_support",
+      "development_merge": "port_configuration_before_use",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "历史SDK预检、入口和supervisor保留。",
+      "integration_after": [],
+      "required_validation": [
+        "SOURCE",
+        "GLM-FUNCTIONAL"
+      ],
+      "notes": [
+        "旧节点、端口与source pins需要明确移植；不重放旧launcher。"
+      ],
+      "source_paths": [
+        "ascend_tuning/profiles/glm53-w8a8-historical/support/sdk-preflight.py",
+        "ascend_tuning/profiles/glm53-w8a8-historical/support/entry.py",
+        "ascend_tuning/profiles/glm53-w8a8-historical/support/supervisor.py",
+        "ascend_tuning/profiles/glm53-w8a8-historical/support/python/sitecustomize.py",
+        "ascend_tuning/profiles/glm53-w8a8-historical/support/python/qualify_image_cpu_v1.py",
+        "ascend_tuning/profiles/glm53-w8a8-historical/support/build_native_extension.py"
+      ]
+    },
+    {
+      "id": "G-NOCOPY",
+      "title": "普通GLM L17 NoCopy候选",
+      "model": "GLM-5.3-W8A8",
+      "category": "experiment",
+      "development_merge": "retain_experiment_disabled",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "对L12D吞吐+5.665%，TPOT P50恶化3.640%；未达到解码改善目标。",
+      "integration_after": [
+        "G-GRAPH-MTP"
+      ],
+      "required_validation": [
+        "SOURCE",
+        "GLM-FUNCTIONAL",
+        "GLM-PERF"
+      ],
+      "notes": [
+        "不能列为已接受的解码性能优化。"
+      ],
+      "source_paths": [
+        "ascend_tuning/experiments/nocopy/glm53_C32_L17_eager_input_audit_v2.py"
+      ]
+    },
+    {
+      "id": "C8-BUFFERS",
+      "title": "W8A8C8普通HCCL与DeepEP缓冲分离配置",
+      "model": "GLM-5.3-W8A8C8",
+      "category": "configuration",
+      "development_merge": "keep_separate_profile_validate_service",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "已有启动及内存证据，没有接受过的端到端TTFT/TPOT/TPS改善。",
+      "integration_after": [],
+      "required_validation": [
+        "SOURCE",
+        "C8-FUNCTIONAL",
+        "C8-PERF"
+      ],
+      "notes": [],
+      "source_paths": [],
+      "configuration_paths": [
+        "ascend_tuning/profiles/glm53-w8a8c8-buffers/profile.json"
+      ]
+    },
+    {
+      "id": "X-DESCRIPTORS",
+      "title": "CPU搬运描述符直接生成三列",
+      "model": "cross_model_candidate",
+      "category": "experiment",
+      "development_merge": "retain_experiment_disabled",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "碎片化CPU组件54.84至21.04ms；未部署服务。",
+      "integration_after": [],
+      "required_validation": [
+        "SOURCE",
+        "COMPONENT",
+        "GLM-FUNCTIONAL",
+        "GLM-PERF"
+      ],
+      "notes": [],
+      "source_paths": [
+        "ascend_tuning/experiments/cpu_descriptors/direct_native_columns.py"
+      ]
+    },
+    {
+      "id": "X-TOKENIZER",
+      "title": "分词队列收集已到达请求",
+      "model": "cross_model_candidate",
+      "category": "experiment",
+      "development_merge": "retain_experiment_disabled",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "两个短输入CPU组件3.718至1.639ms；没有80K或服务收益证明。",
+      "integration_after": [],
+      "required_validation": [
+        "SOURCE",
+        "COMPONENT",
+        "GLM-FUNCTIONAL",
+        "GLM-PERF"
+      ],
+      "notes": [],
+      "source_paths": [
+        "ascend_tuning/experiments/tokenizer_queue/drain_available.py"
+      ]
+    },
+    {
+      "id": "R-950",
+      "title": "950DT/vLLM-Ascend/DSpark参考",
+      "model": "reference_only",
+      "category": "reference",
+      "development_merge": "do_not_merge_as_sglang_implementation",
+      "stable_release": "not_applicable",
+      "historical_evidence": "仅兼容范围与算法参考；不是910C SGLang实现。",
+      "integration_after": [],
+      "required_validation": [],
+      "notes": [],
+      "source_paths": [],
+      "reference_paths": [
+        "ascend_tuning/references/vllm950/compatibility-scope.json"
+      ]
+    },
+    {
+      "id": "TOOLS",
+      "title": "归档完整性检查与显式profile导出",
+      "model": "tooling",
+      "category": "tooling",
+      "development_merge": "cpu_tooling_eligible",
+      "stable_release": "requires_unified_validation",
+      "historical_evidence": "现有CPU完整性、语法、隐私模式、profile闭包和导出检查通过。",
+      "integration_after": [],
+      "required_validation": [
+        "SOURCE"
+      ],
+      "notes": [
+        "工具不安装、不启动模型；CPU检查不代表NPU资格。"
+      ],
+      "source_paths": [
+        "ascend_tuning/tools/verify_package.py",
+        "ascend_tuning/tools/export_profile.py"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "source_project": "glm53-flash",
+  "historical_records_only": true,
+  "original_failure_receipts_preserved": true,
+  "records": [
+    {
+      "topic": "bounded_PD",
+      "logical_source_path": "adaptations/sglang-b103-bounded/evidence/R113-acceptance.json",
+      "original_sha256": "0a6d5712143a7feffbf7438d0f2d38dba643e36343fe069a1eb4eeb3877fd15a"
+    },
+    {
+      "topic": "lifecycle",
+      "logical_source_path": "adaptations/sglang-b103-lifecycle-r116/evidence/R116-acceptance.json",
+      "original_sha256": "debc7315a8d5e6a0c6377da8a7f188d9bc70c63653b0a2dabcbd46f1fee96b0c"
+    },
+    {
+      "topic": "persistent_C2",
+      "logical_source_path": "adaptations/sglang-b103-persistent-owned-c2-r176/acceptance-summary.json",
+      "original_sha256": "8986f01598efa0d17f9ec365993210c1c8521e5df3bebdea1f0adf8df6b12e69"
+    },
+    {
+      "topic": "long_prefix_PD",
+      "logical_source_path": "runs/20261018-r195-offline-native-geometry-proof/analysis.json",
+      "original_sha256": "193950356bcd9d0f102cb514bc9ee97736ffb4666bcc58bf18ea36e3d903b29b"
+    },
+    {
+      "topic": "preclip_component",
+      "logical_source_path": "checks/r213-main-acceptance.json",
+      "original_sha256": "65df0aa131c577907a52d54050808a149ed76ae6e2579c5f8eed0bafbe2fd1d7"
+    },
+    {
+      "topic": "fp32_gmm_component",
+      "logical_source_path": "checks/r214-main-acceptance.json",
+      "original_sha256": "0e46889709691f323a3068db1e1b4200c3378f0e8016d2d605ba843c35f8de1f"
+    },
+    {
+      "topic": "mtp_state_component",
+      "logical_source_path": "checks/r220-main-acceptance.json",
+      "original_sha256": "6c0dac9f57cb6bddfbc06aae08e32be42cd7ca4ed44e5ab6f4e01a7c95ca6f0e"
+    },
+    {
+      "topic": "exact_scale_gmm_component",
+      "logical_source_path": "checks/r229-main-acceptance.json",
+      "original_sha256": "41e4735b5598daae9faad787a37dc52c5bb620e374e21cb94db6c8f93a8cb1d6"
+    },
+    {
+      "topic": "indexer_component",
+      "logical_source_path": "checks/r246-main-actual-acceptance.json",
+      "original_sha256": "f5794e2ab91738abd1598ccb8eb252a4c30f9ecff0a2217db611a1bd14a01479"
+    },
+    {
+      "topic": "model_diagnostic",
+      "logical_source_path": "checks/r247-main-actual-diagnostic-acceptance.json",
+      "original_sha256": "9414cfc4bdccdf1228b0c4ae65abedb82ce535cbf8ff19258f24545c4b13f2c3"
+    }
+  ],
+  "public_stage_summary": "https://github.com/wio1997/Inference-Foundry/blob/c4e00a151ed41cfdf38cecceebb044747046f716/ascend-framework-comparison/glm53-flash/publications/20261019-indexer-profile-optimization/README.md",
+  "limits": "Historical bounded functions and components were tested in different frozen configurations. No combined latest-profile, full numerical, full C32, full Graph/MTP/topology or Flash L3 qualification is inferred. Raw/private sources are not bundled."
+}

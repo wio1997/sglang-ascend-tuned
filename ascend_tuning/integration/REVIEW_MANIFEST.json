@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "source_collection_commit": "f00640d8539394d62441627810a218a1caf71601",
+  "scope": "Documentation and inventories only; original runtime sources and original PACKAGE_MANIFEST unchanged.",
+  "original_package_manifest_sha256": "b6ff25f50ecf54074062e262962143ac1946cbfd4ab4c9f4ba0f5d11c5aa28d3",
+  "files": {
+    "CODE_STATUS.md": {
+      "sha256": "682653eda67649eae224067f53f6466fff167740f8f3a71d8d7a4bf4a931af5f",
+      "bytes": 7027
+    },
+    "UPSTREAM_UPDATES.md": {
+      "sha256": "b56fa8143122f32957b0ec90bb06f5e892aed7c9e02d5c17c29ca4fb56a35463",
+      "bytes": 3520
+    },
+    "ascend_tuning/integration/README.md": {
+      "sha256": "5093942b2f52b09982b39272f6619ce92ab98559f3964f38ee5aa30b5301677a",
+      "bytes": 898
+    },
+    "ascend_tuning/integration/evidence/flash-record-index.json": {
+      "sha256": "06daae7ac97f1fb2151668b16133954bc37f1cd874bfa016ffb299b7e31f4228",
+      "bytes": 2852
+    },
+    "ascend_tuning/integration/file-classification.json": {
+      "sha256": "1f5cf59c15afeb5cf3c55b918f2a52198ead11753c8706f6d6a9a0b3cf6be6a8",
+      "bytes": 29722
+    },
+    "ascend_tuning/integration/items.json": {
+      "sha256": "b8aedadf458536f7e924aa1b2075c9b7710f543506ad595dfb7f1c4c6eaa14e8",
+      "bytes": 23205
+    },
+    "ascend_tuning/integration/verification-plan.json": {
+      "sha256": "0e0e35c6fc7e6ef9e4480c58744b6158ad5a4855c9f9de8375d9806b6a748bc3",
+      "bytes": 3969
+    }
+  },
+  "self_excluded": true
+}

@@ -1,0 +1,592 @@
+{
+  "schema_version": 1,
+  "source_collection_commit": "f00640d8539394d62441627810a218a1caf71601",
+  "coverage": "All 66 SOURCE_INDEX source files plus 2 existing Python tools; configurations/reference metadata are listed separately in items.json.",
+  "code_files": 68,
+  "files": [
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/kernels/ops/attention/fla/fused_sigmoid_gating_recurrent.py",
+      "sha256": "76ad0f5b48bd68590df1c052ea39a07368c617231c81c4ef48964a12fb12dc37",
+      "original_sha256": "76ad0f5b48bd68590df1c052ea39a07368c617231c81c4ef48964a12fb12dc37",
+      "primary_item": "F-MTP-COMPONENT",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/ascend/conn.py",
+      "sha256": "571f903047aea397538ebadf2284a8721ef438129ebb11929c2c4811426803a4",
+      "original_sha256": "571f903047aea397538ebadf2284a8721ef438129ebb11929c2c4811426803a4",
+      "primary_item": "F-SDMA",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/ascend/flash_b103_pd_events.py",
+      "sha256": "82e4569a0d221fe6386e36cf740c3aeb5c16fea136244af15ff39f7ac05e4272",
+      "original_sha256": "82e4569a0d221fe6386e36cf740c3aeb5c16fea136244af15ff39f7ac05e4272",
+      "primary_item": "F-OBSERVABILITY",
+      "role": "observability_review_required",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/ascend/flash_b103_pd_inventory_audit.py",
+      "sha256": "5a26c015319aa59257e3c02bf56cf1478ddd400c937e0189becf2f5d3cb7ca21",
+      "original_sha256": "5a26c015319aa59257e3c02bf56cf1478ddd400c937e0189becf2f5d3cb7ca21",
+      "primary_item": "F-OBSERVABILITY",
+      "role": "observability_review_required",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/ascend/sdma_payload_hash.py",
+      "sha256": "f41911e2d892b91b518b8473d09ba2d5ef7483677c9055fadf3d2e3bd0d96298",
+      "original_sha256": "f41911e2d892b91b518b8473d09ba2d5ef7483677c9055fadf3d2e3bd0d96298",
+      "primary_item": "F-OBSERVABILITY",
+      "role": "observability_review_required",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/ascend/transfer_engine.py",
+      "sha256": "fdb06b61650d2a54376410d7cd808dab90dbb776cd8faf1ed08c6b8f70511448",
+      "original_sha256": "21774268bf98438064dfcc38510f07e0003c62d9002b01b835d6cbea0951d6a7",
+      "primary_item": "F-SDMA",
+      "role": "runtime_candidate",
+      "publication_changes": [
+        "SGLANG_TUNING_HASH_ALLOWED_HOST",
+        "SGLANG_TUNING_HASH_PEER_HOST"
+      ]
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/common/conn.py",
+      "sha256": "6e0041da5f9c7c148f4477bcd15008bb46629dcb441ff3ebf8f887862697c4ff",
+      "original_sha256": "6e0041da5f9c7c148f4477bcd15008bb46629dcb441ff3ebf8f887862697c4ff",
+      "primary_item": "F-SDMA",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/decode.py",
+      "sha256": "2739abd8cee969a65f82233933bd3c71239acd5fd852808677812962b3a05672",
+      "original_sha256": "2739abd8cee969a65f82233933bd3c71239acd5fd852808677812962b3a05672",
+      "primary_item": "F-SDMA",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/mooncake/conn.py",
+      "sha256": "e0346f26e1d37932c7dcfdef85bc9b3d19d8f63c54055de7df1203391d70287a",
+      "original_sha256": "e0346f26e1d37932c7dcfdef85bc9b3d19d8f63c54055de7df1203391d70287a",
+      "primary_item": "F-SDMA",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/prefill.py",
+      "sha256": "1cd7f3975cbc898210ca4df0a5020a2b2526aedf63dca2d6b167a12b7e2b908a",
+      "original_sha256": "1cd7f3975cbc898210ca4df0a5020a2b2526aedf63dca2d6b167a12b7e2b908a",
+      "primary_item": "F-SDMA",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/attention/ascend_backend.py",
+      "sha256": "b76deb848792925be0a5fd596c0b921f034fde90318d6122306c96810c9d8278",
+      "original_sha256": "b76deb848792925be0a5fd596c0b921f034fde90318d6122306c96810c9d8278",
+      "primary_item": "F-BASE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/attention/flash_b103_pd_state_audit.py",
+      "sha256": "4a96bca006af7f60762c1eaf6c3aa67614d34ff54dd37f36fb267b9c3012496c",
+      "original_sha256": "4a96bca006af7f60762c1eaf6c3aa67614d34ff54dd37f36fb267b9c3012496c",
+      "primary_item": "F-OBSERVABILITY",
+      "role": "observability_review_required",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/attention/flash_kda_backend_npu.py",
+      "sha256": "aad968a6384699f69438f8caa033dd61be9933ffd6c8868cd5cc1f49ec4d7e08",
+      "original_sha256": "aad968a6384699f69438f8caa033dd61be9933ffd6c8868cd5cc1f49ec4d7e08",
+      "primary_item": "F-STATE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/attention/flash_kda_prefix_once_audit.py",
+      "sha256": "930f414638f788750f5457b853b2128ec62e46f52153771eb6064dc56196d02b",
+      "original_sha256": "930f414638f788750f5457b853b2128ec62e46f52153771eb6064dc56196d02b",
+      "primary_item": "F-OBSERVABILITY",
+      "role": "observability_review_required",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/flash_kpool_memory_pool_npu.py",
+      "sha256": "8e443fcc45b5ae7868fcee31899c568af09fa3d41e9c1e4fade5cdd9a6142fe4",
+      "original_sha256": "8e443fcc45b5ae7868fcee31899c568af09fa3d41e9c1e4fade5cdd9a6142fe4",
+      "primary_item": "F-STATE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/flash_mhc_fixed_rows.py",
+      "sha256": "e2592b3f01556261624cf11130b802d87e8389552489b228efe006e4fa9a7f22",
+      "original_sha256": "e2592b3f01556261624cf11130b802d87e8389552489b228efe006e4fa9a7f22",
+      "primary_item": "F-BASE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/flash_sparse_nope_npu.py",
+      "sha256": "3955e0aaee1ca55ef3a08a9dd99fa0737d2efeb832218de8ab6c011fe44e1b31",
+      "original_sha256": "3955e0aaee1ca55ef3a08a9dd99fa0737d2efeb832218de8ab6c011fe44e1b31",
+      "primary_item": "F-BASE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/memory_pool_npu.py",
+      "sha256": "b556dd53900aeff77cd913e290d13de03b535c783438162eef9d3a2f8e88e733",
+      "original_sha256": "b556dd53900aeff77cd913e290d13de03b535c783438162eef9d3a2f8e88e733",
+      "primary_item": "F-PREFIX",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/modules/deepseek_v2_attention_mla_npu.py",
+      "sha256": "b2e2bf4e0b41fab3226f571a92a59c4e274d9a9b6f10f1aaf5faf65cda6c78b2",
+      "original_sha256": "b2e2bf4e0b41fab3226f571a92a59c4e274d9a9b6f10f1aaf5faf65cda6c78b2",
+      "primary_item": "F-BASE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/modules/flash_dsa_nope_npu.py",
+      "sha256": "5993a6d4b13af416b96dbbc7589eb785661426f892f2ec0b0377bdaae4ed554f",
+      "original_sha256": "5993a6d4b13af416b96dbbc7589eb785661426f892f2ec0b0377bdaae4ed554f",
+      "primary_item": "F-BASE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_indexer_projection_audit.py",
+      "sha256": "e7ccd577f6f66b820d5b4046f73e89ebedaed04f3a35c7acfa4e93488b817e8b",
+      "original_sha256": "e7ccd577f6f66b820d5b4046f73e89ebedaed04f3a35c7acfa4e93488b817e8b",
+      "primary_item": "F-OBSERVABILITY",
+      "role": "observability_review_required",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_indexer_query_parallel.py",
+      "sha256": "b10d0b387e4fa283ead4eb842f851148ef49ceab99ae6ac89e326f9fed377a12",
+      "original_sha256": "b10d0b387e4fa283ead4eb842f851148ef49ceab99ae6ac89e326f9fed377a12",
+      "primary_item": "F-QUERY",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_compression.py",
+      "sha256": "6deac7412b6d763611f77d65e7dfbca6e47ac4fcc38e8e7511c5e30ab86019c9",
+      "original_sha256": "6deac7412b6d763611f77d65e7dfbca6e47ac4fcc38e8e7511c5e30ab86019c9",
+      "primary_item": "F-STATE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_compression_abi_audit.py",
+      "sha256": "244650558b84f5baf5d5ff98b402840d461839173ef4a11a4719d780d82d7713",
+      "original_sha256": "244650558b84f5baf5d5ff98b402840d461839173ef4a11a4719d780d82d7713",
+      "primary_item": "F-OBSERVABILITY",
+      "role": "observability_review_required",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_indexer_npu.py",
+      "sha256": "f0c0aaaa7c81c59ab06d42524df6402ae70ff61d4ec418e77abe01def6f22d80",
+      "original_sha256": "f0c0aaaa7c81c59ab06d42524df6402ae70ff61d4ec418e77abe01def6f22d80",
+      "primary_item": "F-QUERY",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_model_audit_npu.py",
+      "sha256": "cb2eb2e48bfacd38e7b1972dd15e91d158f0b3481242a6211472339e84521d2c",
+      "original_sha256": "cb2eb2e48bfacd38e7b1972dd15e91d158f0b3481242a6211472339e84521d2c",
+      "primary_item": "F-OBSERVABILITY",
+      "role": "observability_review_required",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_owned_boundary_npu.py",
+      "sha256": "3bdddf14f1c0cdd4aa3cdec16a3f9ced0abbe92f24e9f0fbc42cb544a8a6eee1",
+      "original_sha256": "3bdddf14f1c0cdd4aa3cdec16a3f9ced0abbe92f24e9f0fbc42cb544a8a6eee1",
+      "primary_item": "F-STATE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_score.py",
+      "sha256": "b1821eb60ef3991fcb6a0b6e9c67ae7e8dd0b8c10fde96ece4c0253a28dbef1c",
+      "original_sha256": "b1821eb60ef3991fcb6a0b6e9c67ae7e8dd0b8c10fde96ece4c0253a28dbef1c",
+      "primary_item": "F-STRIDE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_score_abi_audit.py",
+      "sha256": "568bd87e790ee891d44371250843956451b350b429eaa93d61943730ae23a37a",
+      "original_sha256": "568bd87e790ee891d44371250843956451b350b429eaa93d61943730ae23a37a",
+      "primary_item": "F-OBSERVABILITY",
+      "role": "observability_review_required",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/layers/attention/attention_registry.py",
+      "sha256": "7d07e98a6c00106998ad38751a510163ce92404d57e649f101bcb34610141f59",
+      "original_sha256": "7d07e98a6c00106998ad38751a510163ce92404d57e649f101bcb34610141f59",
+      "primary_item": "F-BASE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/layers/attention/dsa/dsa_indexer_kpool.py",
+      "sha256": "a170a06a0c289605333c47f6ed396c6a40834bf688817952c0c328704e588f77",
+      "original_sha256": "a170a06a0c289605333c47f6ed396c6a40834bf688817952c0c328704e588f77",
+      "primary_item": "F-BASE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/layers/quantization/modelslim/flash_modelslim_fp32_scales.py",
+      "sha256": "88bed69e4351928a66f23b2288e114bc16e59686cad11f3ac1b3fec13cb63eb0",
+      "original_sha256": "88bed69e4351928a66f23b2288e114bc16e59686cad11f3ac1b3fec13cb63eb0",
+      "primary_item": "F-BASE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/layers/quantization/modelslim/modelslim.py",
+      "sha256": "b9a1ff9a68ed9fff6167f3817361274fae0553772f0ee58718b348aa508df402",
+      "original_sha256": "b9a1ff9a68ed9fff6167f3817361274fae0553772f0ee58718b348aa508df402",
+      "primary_item": "F-BASE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/disagg_service.py",
+      "sha256": "dcdb6b426c03197cbca96673d07a793c61cf47e6b49d9b66c10b5c065213be94",
+      "original_sha256": "9f380b0fb2d4ce746c8db01fa05ff845ad7795415421a0cc3683a82237c4d53b",
+      "primary_item": "F-SDMA",
+      "role": "runtime_candidate",
+      "publication_changes": [
+        "SGLANG_TUNING_EXPECTED_STORE_URL"
+      ]
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/flash_mhc_binding_audit.py",
+      "sha256": "e901d8783bc575e42ecc3118943cb60ee62af51f7d7d000bab214bfe7e7bfc8f",
+      "original_sha256": "e901d8783bc575e42ecc3118943cb60ee62af51f7d7d000bab214bfe7e7bfc8f",
+      "primary_item": "F-OBSERVABILITY",
+      "role": "observability_review_required",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/flash_pd_lifetime_audit.py",
+      "sha256": "0cf9048425992b76fd87d015c59df1e84bfdae6531a558ba4e861740d1acf7f2",
+      "original_sha256": "0cf9048425992b76fd87d015c59df1e84bfdae6531a558ba4e861740d1acf7f2",
+      "primary_item": "F-OBSERVABILITY",
+      "role": "observability_review_required",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/flash_pd_prefill_gate.py",
+      "sha256": "4f0b368666c19d66734ae85e117f1d8a4d800dda58e9961df4eeac1305a19b16",
+      "original_sha256": "4f0b368666c19d66734ae85e117f1d8a4d800dda58e9961df4eeac1305a19b16",
+      "primary_item": "F-OBSERVABILITY",
+      "role": "test_only_gate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/flash_pd_request_context.py",
+      "sha256": "fbefe64ba106621cdbb39f5efed6af4fd733843620f5879d08c508dd807aafbb",
+      "original_sha256": "fbefe64ba106621cdbb39f5efed6af4fd733843620f5879d08c508dd807aafbb",
+      "primary_item": "F-LIFECYCLE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/flash_pd_sdk_shutdown.py",
+      "sha256": "98e161cae3c8fd8daa7d29897fdcd4c72d11812c4c27b4c00d34a12cc958c3d9",
+      "original_sha256": "98e161cae3c8fd8daa7d29897fdcd4c72d11812c4c27b4c00d34a12cc958c3d9",
+      "primary_item": "F-LIFECYCLE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/flash_pd_shutdown.py",
+      "sha256": "092db0475df5ff97e1da4b1986b72b6be84e8799f21ccc6e234abd1c3f541324",
+      "original_sha256": "092db0475df5ff97e1da4b1986b72b6be84e8799f21ccc6e234abd1c3f541324",
+      "primary_item": "F-LIFECYCLE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/schedule_policy.py",
+      "sha256": "abca0a872e5852d967afebbc06e1c2a1c1bf9197ba2512a6ac8810882fd4b625",
+      "original_sha256": "abca0a872e5852d967afebbc06e1c2a1c1bf9197ba2512a6ac8810882fd4b625",
+      "primary_item": "F-BASE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/scheduler.py",
+      "sha256": "bf67744cd55fb77b6b210774c56ed6c7ce4da6e1228e3208d3d61718a1044978",
+      "original_sha256": "bf67744cd55fb77b6b210774c56ed6c7ce4da6e1228e3208d3d61718a1044978",
+      "primary_item": "F-BASE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/tokenizer_manager.py",
+      "sha256": "fe98764ef5b8021a29ae35cc83015fe9d086c06cdafc3f6e794ebebd8fc98b23",
+      "original_sha256": "fe98764ef5b8021a29ae35cc83015fe9d086c06cdafc3f6e794ebebd8fc98b23",
+      "primary_item": "F-BASE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/mem_cache/memory_pool.py",
+      "sha256": "e47a1450baa6a98ea1342bf892e5663131a35ada4b290f6552ad0f72799d14fe",
+      "original_sha256": "e47a1450baa6a98ea1342bf892e5663131a35ada4b290f6552ad0f72799d14fe",
+      "primary_item": "F-PREFIX",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/models/deepseek_v2.py",
+      "sha256": "b8a18b71fadff451605f898a5f07a27ce5368bb0cb0ba27cad3a260a74ee7cde",
+      "original_sha256": "b8a18b71fadff451605f898a5f07a27ce5368bb0cb0ba27cad3a260a74ee7cde",
+      "primary_item": "F-BASE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/models/flash_parameter_audit.py",
+      "sha256": "940ac038bfd3d51440f0533ed6c32d7571be23e05ac12bcbf97e3678f365980f",
+      "original_sha256": "940ac038bfd3d51440f0533ed6c32d7571be23e05ac12bcbf97e3678f365980f",
+      "primary_item": "F-OBSERVABILITY",
+      "role": "observability_review_required",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/models/glm5_next.py",
+      "sha256": "147beec2752561a56b50b1f19ad786fcb90f2ae38e2de60496b49986d8e0efa4",
+      "original_sha256": "147beec2752561a56b50b1f19ad786fcb90f2ae38e2de60496b49986d8e0efa4",
+      "primary_item": "F-BASE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-w8a8-historical/overlay/sglang/srt/disaggregation/ascend/transfer_engine.py",
+      "sha256": "b8824bd9c8365bda4c584d18e3fb0d19a47f083d00c163c65ded3f95db5570b8",
+      "original_sha256": "b8824bd9c8365bda4c584d18e3fb0d19a47f083d00c163c65ded3f95db5570b8",
+      "primary_item": "G-SDMA",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-w8a8-historical/overlay/sglang/srt/disaggregation/ascend/conn.py",
+      "sha256": "b49d78a04966c13e95758d30ee66574436e0034dfc24fdb12ecad2bbc5dfd547",
+      "original_sha256": "b49d78a04966c13e95758d30ee66574436e0034dfc24fdb12ecad2bbc5dfd547",
+      "primary_item": "G-SDMA",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_sglang_sdma_audit.py",
+      "sha256": "c7eade14e1c285105aadb3d31bfd173f354ccf274328dc8df71345cde6344008",
+      "original_sha256": "22ae47b2c4d6bef5dd83fd1377766e35aef51a61259331db20690a984bd92948",
+      "primary_item": "G-SDMA",
+      "role": "observability_review_required",
+      "publication_changes": [
+        "SGLANG_TUNING_EXPECTED_STORE_URL"
+      ]
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-w8a8-historical/support/provider.py",
+      "sha256": "e49811be51a8699bab78e9ad04750e01ffe6726b849f957c7012ce66b430856b",
+      "original_sha256": "e49811be51a8699bab78e9ad04750e01ffe6726b849f957c7012ce66b430856b",
+      "primary_item": "G-MEMCACHE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-w8a8-historical/support/sdk-preflight.py",
+      "sha256": "af385c59975bce3c4aacfbd86d7f2407dc5e5c4edc2b6195663ff8172613befe",
+      "original_sha256": "af385c59975bce3c4aacfbd86d7f2407dc5e5c4edc2b6195663ff8172613befe",
+      "primary_item": "G-SUPPORT",
+      "role": "observability_review_required",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-w8a8-historical/support/entry.py",
+      "sha256": "3c5652b0c7143387f47c7add7c600e0ee085a74cd6a1632f0ef92201fdd5c3a8",
+      "original_sha256": "3c5652b0c7143387f47c7add7c600e0ee085a74cd6a1632f0ef92201fdd5c3a8",
+      "primary_item": "G-SUPPORT",
+      "role": "deployment_support",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-w8a8-historical/support/supervisor.py",
+      "sha256": "d791e7b729d0c639c3109ee6b8b9ba2c5ccba7d537804cbb37f2970f1df6bde7",
+      "original_sha256": "d791e7b729d0c639c3109ee6b8b9ba2c5ccba7d537804cbb37f2970f1df6bde7",
+      "primary_item": "G-SUPPORT",
+      "role": "deployment_support",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-w8a8-historical/support/python/sitecustomize.py",
+      "sha256": "d677853a805da5febb58ff3a7c1c0ee31841b44047c20120e75ac8a79a86bb81",
+      "original_sha256": "d677853a805da5febb58ff3a7c1c0ee31841b44047c20120e75ac8a79a86bb81",
+      "primary_item": "G-SUPPORT",
+      "role": "historical_hook_do_not_autoload",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_deepep_metadata_batch_v1.py",
+      "sha256": "daf4825ab2579af4cca617cf2746b8a97d30020e7abde47277bc4abe7e009363",
+      "original_sha256": "daf4825ab2579af4cca617cf2746b8a97d30020e7abde47277bc4abe7e009363",
+      "primary_item": "G-DEEPEP",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_deepep_metadata_import_hook_v1.py",
+      "sha256": "c4c429ea517c7ac726bf937cc3ab4c0db337c9e92666340af5b075dbec9b2bcb",
+      "original_sha256": "c4c429ea517c7ac726bf937cc3ab4c0db337c9e92666340af5b075dbec9b2bcb",
+      "primary_item": "G-DEEPEP",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-w8a8-historical/support/python/qualify_image_cpu_v1.py",
+      "sha256": "8ef90b9cecdb655e830cf34223dc680d4841ac773f6899254e509636fc7220b8",
+      "original_sha256": "8ef90b9cecdb655e830cf34223dc680d4841ac773f6899254e509636fc7220b8",
+      "primary_item": "G-SUPPORT",
+      "role": "observability_review_required",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_C32_target_graph_fullmesh_v2.py",
+      "sha256": "feb69fcc0020acca1fa2c3ce2774aefa79483a79d8f5221c7c265bff8b37185b",
+      "original_sha256": "feb69fcc0020acca1fa2c3ce2774aefa79483a79d8f5221c7c265bff8b37185b",
+      "primary_item": "G-GRAPH-MTP",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_C32_hicache_native_mtp_v1.py",
+      "sha256": "50d7cc8040b9956092dd40fe204bc5d6d3633bf04f1ba6937a8273fc72ac0b2f",
+      "original_sha256": "50d7cc8040b9956092dd40fe204bc5d6d3633bf04f1ba6937a8273fc72ac0b2f",
+      "primary_item": "G-MEMCACHE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_C32_native_MC_mapping_reuse_v1.py",
+      "sha256": "daec07cca112741d54bc766d206ca6ccabb27258d5ceb26f79a0573878514a82",
+      "original_sha256": "daec07cca112741d54bc766d206ca6ccabb27258d5ceb26f79a0573878514a82",
+      "primary_item": "G-MEMCACHE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_C32_hicache_native_import_hook_v2.py",
+      "sha256": "cb5bd37fd3a3bf718e34734228d70e075d56c9b7a4415d320b2f94fbf311d28d",
+      "original_sha256": "cb5bd37fd3a3bf718e34734228d70e075d56c9b7a4415d320b2f94fbf311d28d",
+      "primary_item": "G-MEMCACHE",
+      "role": "runtime_candidate",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/profiles/glm53-w8a8-historical/support/build_native_extension.py",
+      "sha256": "073a7850c7421551e2bb8c90fb003029c489eec4980f3b7f3f27e7c723d8d8e8",
+      "original_sha256": "073a7850c7421551e2bb8c90fb003029c489eec4980f3b7f3f27e7c723d8d8e8",
+      "primary_item": "G-SUPPORT",
+      "role": "deployment_support",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/experiments/nocopy/glm53_C32_L17_eager_input_audit_v2.py",
+      "sha256": "0df4276b5e5f8d10aec1faf25cd24e847dc3ef9a57570f70f257c0ebf539d56f",
+      "original_sha256": "0df4276b5e5f8d10aec1faf25cd24e847dc3ef9a57570f70f257c0ebf539d56f",
+      "primary_item": "G-NOCOPY",
+      "role": "experiment_default_off",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/experiments/cpu_descriptors/direct_native_columns.py",
+      "sha256": "fdc287ae67391d323445389da927e7f6aa0f2e3126cdace2bc2da2d8f9a8267a",
+      "original_sha256": "fdc287ae67391d323445389da927e7f6aa0f2e3126cdace2bc2da2d8f9a8267a",
+      "primary_item": "X-DESCRIPTORS",
+      "role": "experiment_default_off",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/experiments/tokenizer_queue/drain_available.py",
+      "sha256": "439ed10f5937910caa8232fcc924394d4e18fa9b448b8df7cca9fd0b8f787275",
+      "original_sha256": "439ed10f5937910caa8232fcc924394d4e18fa9b448b8df7cca9fd0b8f787275",
+      "primary_item": "X-TOKENIZER",
+      "role": "experiment_default_off",
+      "publication_changes": []
+    },
+    {
+      "path": "ascend_tuning/tools/verify_package.py",
+      "sha256": "2c0bf63d906d41a3a2c125997dd8beafe360de1511887bd1a35c57f25f970744",
+      "primary_item": "TOOLS",
+      "role": "cpu_tooling"
+    },
+    {
+      "path": "ascend_tuning/tools/export_profile.py",
+      "sha256": "e5ee0f9e36d62b49b4189ff99e0b5ffa47ebf804b29f2ac2584580d4181025cd",
+      "primary_item": "TOOLS",
+      "role": "cpu_tooling"
+    }
+  ],
+  "shared_target_conflicts": [
+    {
+      "target": "sglang/srt/disaggregation/ascend/conn.py",
+      "variants": [
+        {
+          "source": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/ascend/conn.py",
+          "sha256": "571f903047aea397538ebadf2284a8721ef438129ebb11929c2c4811426803a4",
+          "item": "F-SDMA"
+        },
+        {
+          "source": "ascend_tuning/profiles/glm53-w8a8-historical/overlay/sglang/srt/disaggregation/ascend/conn.py",
+          "sha256": "b49d78a04966c13e95758d30ee66574436e0034dfc24fdb12ecad2bbc5dfd547",
+          "item": "G-SDMA"
+        }
+      ],
+      "identical": false,
+      "action": "Review minimal shared-interface changes and model-specific registration; never select one whole file to overwrite the other profile."
+    },
+    {
+      "target": "sglang/srt/disaggregation/ascend/transfer_engine.py",
+      "variants": [
+        {
+          "source": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/ascend/transfer_engine.py",
+          "sha256": "fdb06b61650d2a54376410d7cd808dab90dbb776cd8faf1ed08c6b8f70511448",
+          "item": "F-SDMA"
+        },
+        {
+          "source": "ascend_tuning/profiles/glm53-w8a8-historical/overlay/sglang/srt/disaggregation/ascend/transfer_engine.py",
+          "sha256": "b8824bd9c8365bda4c584d18e3fb0d19a47f083d00c163c65ded3f95db5570b8",
+          "item": "G-SDMA"
+        }
+      ],
+      "identical": false,
+      "action": "Review minimal shared-interface changes and model-specific registration; never select one whole file to overwrite the other profile."
+    }
+  ],
+  "scope": "Primary ownership index, not a claim that each file is an independent patch; shared callers can belong to several changes. Runtime source bytes were not modified."
+}
