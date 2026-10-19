@@ -1,36 +1,68 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "source_collection_commit": "f00640d8539394d62441627810a218a1caf71601",
-  "scope": "Documentation and inventories only; original runtime sources and original PACKAGE_MANIFEST unchanged.",
+  "scope": "Maintenance records and checker; original source archive manifest remains separate.",
   "original_package_manifest_sha256": "b6ff25f50ecf54074062e262962143ac1946cbfd4ab4c9f4ba0f5d11c5aa28d3",
   "files": {
+    ".github/workflows/ascend-registry.yml": {
+      "sha256": "734774ec14087099aa0199820316b2896f9023aaab6e3c7b19b2bf3aa77b2b90",
+      "bytes": 888
+    },
+    "AGENTS.md": {
+      "sha256": "d66c01dde706eb9e99528ec012ceac368433c3cc75a3f36d2577b26efd0592f9",
+      "bytes": 2343
+    },
     "CODE_STATUS.md": {
-      "sha256": "682653eda67649eae224067f53f6466fff167740f8f3a71d8d7a4bf4a931af5f",
-      "bytes": 7027
+      "sha256": "e00b5e49e61e8c537f909384fb9aeda3a1803e075688f8e7b7a8a8cbc7be4b5d",
+      "bytes": 7300
+    },
+    "CONTRIBUTING_ASCEND.md": {
+      "sha256": "04888e65765f351cdb94946dfeef36da4e9f990f23de8ac63afc63009af0f6ca",
+      "bytes": 11303
     },
     "UPSTREAM_UPDATES.md": {
       "sha256": "b56fa8143122f32957b0ec90bb06f5e892aed7c9e02d5c17c29ca4fb56a35463",
       "bytes": 3520
     },
     "ascend_tuning/integration/README.md": {
-      "sha256": "5093942b2f52b09982b39272f6619ce92ab98559f3964f38ee5aa30b5301677a",
-      "bytes": 898
+      "sha256": "770cf442301ef06967a73260dc8f596d6097e43bfc5aa636a18ca432604b13c6",
+      "bytes": 1443
+    },
+    "ascend_tuning/integration/REGISTRY_RULES.json": {
+      "sha256": "9081b8172a9aa86ee6c1fc4814a8dfe077c29f855277d1bb3b5c6180eca9c8c7",
+      "bytes": 3344
     },
     "ascend_tuning/integration/evidence/flash-record-index.json": {
       "sha256": "06daae7ac97f1fb2151668b16133954bc37f1cd874bfa016ffb299b7e31f4228",
       "bytes": 2852
     },
+    "ascend_tuning/integration/examples/new-item.json": {
+      "sha256": "477ba2ee77eaf3dda54b7cf2642419bb7014a2a08acfd80bf4df4718e74f5ccb",
+      "bytes": 971
+    },
+    "ascend_tuning/integration/examples/validation-run.json": {
+      "sha256": "080fa5f39499e61efdf83322d0612396e00917f10110af932a751b61705f5aab",
+      "bytes": 598
+    },
     "ascend_tuning/integration/file-classification.json": {
-      "sha256": "1f5cf59c15afeb5cf3c55b918f2a52198ead11753c8706f6d6a9a0b3cf6be6a8",
-      "bytes": 29722
+      "sha256": "35a4a3e1695311ef18f687d2ee2bf6bfb1da087488270e828586b12b94d8220b",
+      "bytes": 30057
     },
     "ascend_tuning/integration/items.json": {
-      "sha256": "b8aedadf458536f7e924aa1b2075c9b7710f543506ad595dfb7f1c4c6eaa14e8",
-      "bytes": 23205
+      "sha256": "5fae11eb234e5710dfbb993a76b5d6cf5f8733ed7a35e9281cc0633a0f9d3981",
+      "bytes": 47696
+    },
+    "ascend_tuning/integration/runs/README.md": {
+      "sha256": "64c9abb0ac8b63ce5eb58e15cf5d523fa3e951c4495e09ad8132e754a3745b29",
+      "bytes": 433
     },
     "ascend_tuning/integration/verification-plan.json": {
-      "sha256": "0e0e35c6fc7e6ef9e4480c58744b6158ad5a4855c9f9de8375d9806b6a748bc3",
-      "bytes": 3969
+      "sha256": "adcaee3c2865ff2b6c1c3b05f42d1f8379b07404687d98d79671c5f9736e0849",
+      "bytes": 4319
+    },
+    "ascend_tuning/tools/check_registry.py": {
+      "sha256": "a54a42e49813c002616a9f934991ece7809c444be9e2a1593a21484b3ba5e91e",
+      "bytes": 13477
     }
   },
   "self_excluded": true

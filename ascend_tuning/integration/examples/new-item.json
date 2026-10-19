@@ -1,0 +1,42 @@
+{
+  "id": "F-EXAMPLE",
+  "title": "替换为本项改动的名称",
+  "summary": "替换为具体问题、触发条件和期望行为。",
+  "model": "GLM-5.3-Flash-W8A8",
+  "category": "correctness",
+  "source_presence": "planned",
+  "source_paths": [],
+  "evidence_refs": [],
+  "validation_state": "pending",
+  "integration_state": "planned",
+  "merge_policy": "hold_integration",
+  "integration_after": [
+    "F-BASE"
+  ],
+  "required_validation": [
+    "SOURCE",
+    "FLASH-FUNCTIONAL"
+  ],
+  "validation_runs": [],
+  "scope": {
+    "base_source_commit": null,
+    "hardware": null,
+    "profiles": [],
+    "limitations": [
+      "尚未实现或验证；根据实际情况填写。"
+    ]
+  },
+  "rollback": {
+    "commit": null,
+    "profile": null,
+    "notes": "实现前填写回退方式。"
+  },
+  "upstream": {
+    "status": "not_reviewed",
+    "target_commit": null,
+    "evidence_refs": []
+  },
+  "notes": [
+    "示例，不计入真实登记表。"
+  ]
+}

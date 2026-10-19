@@ -82,5 +82,8 @@
     "development": "Resolve source conflicts and affected correctness before integrating; experimental code remains disabled and clearly scoped.",
     "stable": "Only the exact frozen combination and declared supported profiles that passed unified real-hardware validation.",
     "upstream_upgrade": "Separate candidate on pinned upstream target; compare upstream fixes, retire duplicates, port remaining minimal patches, then use affected model gates."
-  }
+  },
+  "registry_rules": "ascend_tuning/integration/REGISTRY_RULES.json",
+  "run_record_template": "ascend_tuning/integration/examples/validation-run.json",
+  "record_policy": "每个真实候选按精确源码和配置登记独立run记录。旧历史证据仍保持范围标注；没有新实测不晋升。文档/登记检查不要求重跑模型。"
 }

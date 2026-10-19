@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source_collection_commit": "f00640d8539394d62441627810a218a1caf71601",
-  "coverage": "All 66 SOURCE_INDEX source files plus 2 existing Python tools; configurations/reference metadata are listed separately in items.json.",
-  "code_files": 68,
+  "coverage": "66 archived SOURCE_INDEX source files, 2 existing Python tools and 1 maintained registry checker. This is a custom-code inventory, not all official SGLang files.",
+  "code_files": 69,
   "files": [
     {
       "path": "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/kernels/ops/attention/fla/fused_sigmoid_gating_recurrent.py",
@@ -550,6 +550,12 @@
       "sha256": "e5ee0f9e36d62b49b4189ff99e0b5ffa47ebf804b29f2ac2584580d4181025cd",
       "primary_item": "TOOLS",
       "role": "cpu_tooling"
+    },
+    {
+      "path": "ascend_tuning/tools/check_registry.py",
+      "sha256": "a54a42e49813c002616a9f934991ece7809c444be9e2a1593a21484b3ba5e91e",
+      "primary_item": "TOOLS",
+      "role": "cpu_tooling"
     }
   ],
   "shared_target_conflicts": [
@@ -588,5 +594,7 @@
       "action": "Review minimal shared-interface changes and model-specific registration; never select one whole file to overwrite the other profile."
     }
   ],
-  "scope": "Primary ownership index, not a claim that each file is an independent patch; shared callers can belong to several changes. Runtime source bytes were not modified."
+  "scope": "Primary ownership index, not a claim that each file is an independent patch; shared callers can belong to several changes. Runtime source bytes were not modified.",
+  "maintenance_base_commit": "256c6662050edc4091d5f2855f7aa93ec4bb1265",
+  "retired_paths": []
 }

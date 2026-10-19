@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "run_id": "EXAMPLE-NOT-A-REAL-RUN",
+  "item_ids": [
+    "F-EXAMPLE"
+  ],
+  "candidate_commit": null,
+  "candidate_source_manifest": null,
+  "executed_at": null,
+  "hardware": null,
+  "runtime": null,
+  "model": null,
+  "configuration": {},
+  "dataset": null,
+  "checks": [],
+  "measurements": {
+    "scope": "not_measured",
+    "throughput": null,
+    "TTFT": null,
+    "TPOT": null,
+    "warmup_included": null
+  },
+  "artifacts": [],
+  "failures": [],
+  "verdict": "not_run",
+  "limitations": [
+    "模板，不能当作真实通过证据。"
+  ],
+  "example": true
+}

@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "registry_schema_version": 2,
+  "item_required_fields": [
+    "id",
+    "title",
+    "summary",
+    "model",
+    "category",
+    "source_presence",
+    "source_paths",
+    "evidence_refs",
+    "validation_state",
+    "integration_state",
+    "merge_policy",
+    "integration_after",
+    "required_validation",
+    "validation_runs",
+    "scope",
+    "rollback",
+    "upstream",
+    "notes"
+  ],
+  "categories": {
+    "adaptation": "让模型、状态或后端可以接入运行",
+    "correctness": "修复数值、布局、状态所有权或生命周期错误",
+    "performance": "在正确性前提下减少计算、搬运、分配或等待",
+    "configuration": "只改变运行参数、缓冲和拓扑配置",
+    "observability_test": "采样、审计、测试门控与验证代码",
+    "deployment_support": "依赖构建、预检、启动和环境支持",
+    "tooling": "仓库管理、打包、导出与记录检查工具",
+    "reference": "其他框架或硬件的资料，不是当前SGLang实现"
+  },
+  "source_presence": [
+    "in_collection",
+    "partially_in_collection",
+    "not_in_collection",
+    "planned",
+    "configuration_only",
+    "reference_only",
+    "tooling"
+  ],
+  "validation_states": [
+    "pending",
+    "source_only",
+    "component_pass",
+    "historical_scoped_pass",
+    "candidate_pass",
+    "failed",
+    "not_applicable"
+  ],
+  "integration_states": [
+    "planned",
+    "archived",
+    "in_progress",
+    "integrated",
+    "verified",
+    "released",
+    "retired"
+  ],
+  "merge_policies": [
+    "development_candidate",
+    "hold_integration",
+    "experimental_only",
+    "reference_only",
+    "tooling_only"
+  ],
+  "upstream_statuses": [
+    "not_reviewed",
+    "keep_patch",
+    "rewrite_patch",
+    "upstream_covers",
+    "not_applicable"
+  ],
+  "run_required_fields": [
+    "schema_version",
+    "run_id",
+    "item_ids",
+    "candidate_commit",
+    "candidate_source_manifest",
+    "executed_at",
+    "hardware",
+    "runtime",
+    "model",
+    "configuration",
+    "dataset",
+    "checks",
+    "measurements",
+    "artifacts",
+    "failures",
+    "verdict",
+    "limitations",
+    "example"
+  ],
+  "run_verdicts": [
+    "not_run",
+    "blocked",
+    "passed",
+    "failed"
+  ],
+  "check_results": [
+    "not_run",
+    "passed",
+    "failed",
+    "not_applicable"
+  ],
+  "path_arrays": [
+    "source_paths",
+    "configuration_paths",
+    "reference_paths",
+    "evidence_refs",
+    "validation_runs"
+  ],
+  "inventory_roles": [
+    "runtime_candidate",
+    "test_only_gate",
+    "observability_review_required",
+    "deployment_support",
+    "historical_hook_do_not_autoload",
+    "experiment_default_off",
+    "cpu_tooling",
+    "maintained_runtime"
+  ],
+  "id_prefixes": {
+    "F-": "Flash",
+    "G-": "普通GLM W8A8",
+    "C8-": "W8A8C8",
+    "X-": "实验候选",
+    "R-": "参考资料",
+    "CORE-": "公共引擎",
+    "TOOLS": "仓库工具，兼容原TOOLS编号"
+  },
+  "record_rule": "一项独立目的一个ID；验证状态与分类正交。ID不复用，历史失败不覆盖。",
+  "validation_note": "历史范围通过不自动晋升candidate_pass；候选通过要求实际证据绑定被测提交或源文件清单。",
+  "publishing_note": "月度发布由用户安排；规则和分类本身不授权恢复服务或创建自动化。"
+}

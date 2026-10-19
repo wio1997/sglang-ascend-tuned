@@ -1,0 +1,32 @@
+name: Ascend registry records
+on:
+  push:
+    paths:
+      - 'AGENTS.md'
+      - 'CONTRIBUTING_ASCEND.md'
+      - 'CODE_STATUS.md'
+      - 'UPSTREAM_UPDATES.md'
+      - 'ascend_tuning/integration/**'
+      - 'ascend_tuning/tools/check_registry.py'
+      - '.github/workflows/ascend-registry.yml'
+  pull_request:
+    paths:
+      - 'AGENTS.md'
+      - 'CONTRIBUTING_ASCEND.md'
+      - 'CODE_STATUS.md'
+      - 'UPSTREAM_UPDATES.md'
+      - 'ascend_tuning/integration/**'
+      - 'ascend_tuning/tools/check_registry.py'
+      - '.github/workflows/ascend-registry.yml'
+permissions:
+  contents: read
+jobs:
+  records:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 ascend_tuning/tools/verify_package.py
+      - run: python3 ascend_tuning/tools/check_registry.py

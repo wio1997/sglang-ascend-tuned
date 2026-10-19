@@ -2,12 +2,14 @@
 
 更新：2026-10-19。来源归档提交：`f00640d8539394d62441627810a218a1caf71601`。
 
+**接手规则**：[AGENTS.md](AGENTS.md)提供AI阅读顺序，[CONTRIBUTING_ASCEND.md](CONTRIBUTING_ASCEND.md)规定分类、登记、验证状态、提交和合并方法。登记结构为v2；源码可追溯与资格状态分别维护。
+
 本次只做代码和证据归类，不改变引擎源码，不进行新实机测试。用户自行安排月度版本及 2026-11-20 目标发布；不设置定时任务，不自动发布或恢复历史实验。
 
 ## 入口与当前状态
 
 - [逐项登记](ascend_tuning/integration/items.json)：23项，包含功能、优化、配置、候选、工具及参考；不是23项新优化。
-- [逐文件分类](ascend_tuning/integration/file-classification.json)：现有66个归档源码文件与2个既有Python工具，全部登记原始/发布身份、主要用途与运行角色。
+- [逐文件分类](ascend_tuning/integration/file-classification.json)：原66个归档源码、2个既有工具及新增登记检查器，共69个Python文件，登记身份、主要用途与运行角色。
 - [统一验证计划](ascend_tuning/integration/verification-plan.json)：按模型冻结组合候选、复用已有证据和同次服务生命周期，集中完成相关验证。
 - [Flash历史证据索引](ascend_tuning/integration/evidence/flash-record-index.json)：记录原始验收文件SHA及范围，不发布原始业务文本。
 - [官方升级规则](UPSTREAM_UPDATES.md)：固定底座、比对官方修复、退役重复补丁、受控升级。
@@ -40,7 +42,7 @@
 | X-DESCRIPTORS | CPU实验 | 碎片化组件计时 | 保留实验、默认关闭，待服务端受控对照 |
 | X-TOKENIZER | CPU实验 | 两个短输入组件计时 | 保留实验、默认关闭，无80K结论 |
 | R-950 | 参考材料 | vLLM/DSpark及950DT特定范围 | 仅作参考，不直接合入910C SGLang |
-| TOOLS | 归档工具 | CPU完整性、语法、导出检查 | 可维护合入；不构成NPU资格 |
+| TOOLS | 归档和登记工具 | CPU完整性、语法、导出及记录检查 | 可维护合入；不构成NPU资格 |
 
 ## Flash的真实边界
 
