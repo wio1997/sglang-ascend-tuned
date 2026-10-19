@@ -1,0 +1,31 @@
+{
+  "source_publication": "https://github.com/wio1997/Inference-Foundry/tree/c4e00a151ed41cfdf38cecceebb044747046f716/ascend-framework-comparison/glm53-flash/publications/20261019-indexer-profile-optimization",
+  "measured_configuration": {
+    "TP": 16,
+    "DP": 1,
+    "EP": 1,
+    "eager": true,
+    "MTP": false
+  },
+  "window_scope": "Two consecutive actual P forwards;4096 query tokens each;TP0 sampled",
+  "early": {
+    "old_seconds": 16.9115,
+    "new_seconds": 2.6786,
+    "ratio_rounded": 6.31
+  },
+  "middle": {
+    "old_seconds": 24.143,
+    "new_seconds": 3.1295,
+    "ratio_rounded": 7.71
+  },
+  "late": {
+    "old_seconds": null,
+    "new_seconds": 3.751,
+    "ratio": null
+  },
+  "full_warm32_seconds": null,
+  "new_sglang_C32_TPS": null,
+  "full_math_qualification": false,
+  "new_host_validation": false,
+  "scope_note": "Original historical code evidence; public snapshot parameterizes four endpoint checks/routes and is not bit-identical in those modules"
+}

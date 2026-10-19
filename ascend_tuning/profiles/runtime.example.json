@@ -1,0 +1,13 @@
+{
+  "model_profile": "glm53-flash-eager",
+  "model_path": "/models/selected-model",
+  "role": "P_OR_D",
+  "dist_init_addr": "SET_EXPLICITLY",
+  "device_ids": [],
+  "audit_environment": {
+    "SGLANG_TUNING_EXPECTED_STORE_URL": "SET_EXPLICITLY",
+    "SGLANG_TUNING_HASH_ALLOWED_HOST": "SET_EXPLICITLY",
+    "SGLANG_TUNING_HASH_PEER_HOST": "SET_EXPLICITLY"
+  },
+  "note": "Template only. Hardware, links, flags, SDK and source pins require a new-node port. No service is started by exporting a profile."
+}

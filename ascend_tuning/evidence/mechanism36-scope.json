@@ -1,0 +1,18 @@
+{
+  "source_publication_commit": "cefe57bac5ceb495660a7b50218b9f1ff443873b",
+  "model": "GLM-5.3-W8A8C8",
+  "code_in_live_service": "Configuration adjustments, not production source patch",
+  "service_scope": "P and D startup readiness; not an accepted end-to-end performance gain",
+  "cpu_candidates": {
+    "descriptor_fixture_ms": [
+      54.84,
+      21.04
+    ],
+    "tokenizer_two_short_inputs_ms": [
+      3.718,
+      1.639
+    ]
+  },
+  "long_input_tokenizer_gain_accepted": false,
+  "new_host_validation": false
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "status": "PUBLIC_RESEARCH_SOURCE_COLLECTION_NOT_A_DEPLOYED_RELEASE",
+  "actual_builds": 0,
+  "actual_deployments": 0,
+  "base_image_id_observed": "sha256:c5cf2deb674cd1c8aba10a70d8dcb3e413d3739f6a54808c568e11d711d2e263",
+  "base_image_id_is_registry_manifest_digest": false,
+  "base_image_note": "Historical local image identity shared by Flash and mechanism task; new-host compatibility and recoverable image artifact not yet checked.",
+  "patch_items": [
+    {
+      "id": "FLASH-INDEXER-STRIDE",
+      "type": "source_patch",
+      "profile": "glm53-flash",
+      "patch": "patches/glm53-flash/indexer-performance.patch",
+      "changes": "Runtime page-table strides, avoid repeated JIT specialization",
+      "correctness": "Six widths byte-identical; paired actual forward evidence for combined patch",
+      "performance": "Combined early 16.9115->2.6786s; middle 24.1430->3.1295s; not independently attributed to this subchange",
+      "default_global_enable": false,
+      "eligible": "Only pinned historical Flash adapter profile; port required before using a different caller or MTP",
+      "requires": [
+        "Original private Flash adapter baseline (46 files)",
+        "Exact compatible SGLang/CANN/TorchNPU/Triton runtime"
+      ],
+      "conflicts": [
+        "Do not overwrite a newer MTP-enabled indexer caller with this historical caller"
+      ]
+    },
+    {
+      "id": "FLASH-INDEXER-QUERY-PARTITION",
+      "type": "source_patch",
+      "profile": "glm53-flash",
+      "patch": "patches/glm53-flash/indexer-performance.patch",
+      "changes": "Partition prefill query rows within native attention TP group, gather final int32 indices; existing fallback for decode/small prefill",
+      "correctness": "16 ranks x 5 cases bit-exact; real model diagnostic windows",
+      "performance": "Component including HCCL 1135.12528->77.2143ms; combined actual model window speedup 6.31x/7.71x",
+      "default_global_enable": false,
+      "eligible": "Historical TP16 DP1 EP1 eager MTP-off profile only; no full C32 claim",
+      "requires": [
+        "FLASH-INDEXER-STRIDE",
+        "Pinned private Flash adapter"
+      ],
+      "not_proven": [
+        "Complete 32-prefix warm duration",
+        "Formal SGLang C32 throughput",
+        "Full numerical/Graph/MTP qualification"
+      ]
+    },
+    {
+      "id": "GLM53-NATIVE-SDMA-MEMCACHE-GRAPH-MTP",
+      "type": "model_runtime_bundle",
+      "profile": "glm53-w8a8",
+      "changes": "Existing native SDMA/MemCache integration, target Graph, eager draft MTP5 and associated runtime configuration",
+      "correctness": "Historical functional and accepted C32 evidence exist",
+      "performance": "L12D historical 389.8741 token/s; TTFT P50 17.7572s; TPOT P50 36.6586ms; not a claim for each constituent mechanism",
+      "default_global_enable": false,
+      "eligible": "Extract exact accepted runtime/config set and port to a verified new base; do not replay old node-bound launchers",
+      "requires": [
+        "Ordinary W8A8 model, not W8A8C8",
+        "Compatible MF/MC ABI",
+        "New hardware/link validation"
+      ],
+      "source_patch_export": "Not yet isolated in this consolidation"
+    },
+    {
+      "id": "GLM53-NOCOPY-L17",
+      "type": "experimental_source_candidate",
+      "profile": "glm53-w8a8-experimental",
+      "changes": "Bypass eager MTP input copy to fixed buffers using existing tensors",
+      "correctness": "Functional and formal measurement accepted",
+      "performance": "Vs L12D throughput +5.665%, TPOT P50 +3.640% worse; decode improvement criterion missed",
+      "default_global_enable": false,
+      "eligible": "Experimental only; not promoted as a proven decode optimization",
+      "evidence": "evidence/glm53-L17-comparison.json"
+    },
+    {
+      "id": "MECH36-COMM-BUFFERS",
+      "type": "runtime_configuration",
+      "profile": "glm53-w8a8c8",
+      "changes": "Separate ordinary HCCL and DeepEP buffers; reduce D DeepEP allocation",
+      "config_observed": {
+        "P": {
+          "HCCL_BUFFSIZE": "200",
+          "DEEPEP_HCCL_BUFFSIZE": "2048"
+        },
+        "D": {
+          "HCCL_BUFFSIZE": "200",
+          "DEEPEP_HCCL_BUFFSIZE": "1024"
+        }
+      },
+      "correctness": "Full P/D model startup ready; real request end-to-end qualification pending in inspected latest record",
+      "performance": "Memory fixture savings and startup OOM resolution; no accepted TTFT/TPOT/TPS improvement",
+      "default_global_enable": false,
+      "eligible": "Config candidate for matching runtime/role; size must suit actual model, topology and workload",
+      "requires": [
+        "W8A8C8 profile kept separate from ordinary W8A8",
+        "Do not use memory savings as a service speedup claim"
+      ]
+    },
+    {
+      "id": "MECH36-DESCRIPTORS",
+      "type": "isolated_cpu_candidate",
+      "profile": "experimental",
+      "changes": "Generate CPU transfer descriptors directly as three columns",
+      "correctness": "Component evidence only; not deployed in service",
+      "performance": "Fragmented fixture 54.84->21.04ms, about2.80x",
+      "default_global_enable": false
+    },
+    {
+      "id": "MECH36-TOKENIZER-QUEUE",
+      "type": "isolated_cpu_candidate",
+      "profile": "experimental",
+      "changes": "Collect only requests already arrived in tokenizer queue",
+      "correctness": "CPU short-input component; long-input/PD service evidence absent",
+      "performance": "Two short inputs3.718->1.639ms, about2.28x; no 80K claim",
+      "default_global_enable": false
+    },
+    {
+      "id": "DEEPSEEK950-REFERENCE",
+      "type": "reference_only",
+      "profile": "not_sglang",
+      "changes": "vLLM-Ascend/DSpark and950DT-specific quantization/cache algorithms",
+      "correctness": "Preserve original per-hardware and per-precision evidence",
+      "performance": "See original controlled reports; not merged into SGLang results",
+      "default_global_enable": false,
+      "eligible": "Use algorithmic ideas as SGLang port candidates; do not apply vLLM patches or950 binaries to910C"
+    }
+  ]
+}

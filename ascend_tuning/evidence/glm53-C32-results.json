@@ -1,0 +1,51 @@
+{
+  "scope": "Historical ordinaryW8A8 two2P2D deployments; SDMA; 128formal requests, warm excluded; deployment stacks differ",
+  "metrics": {
+    "current_L17_measurement": {
+      "framework": "sglang",
+      "concurrency": 32,
+      "formal_requests": 128,
+      "output_tokens_per_second": 411.96063310047657,
+      "ttft_seconds_P50": 16.656655521132052,
+      "tpot_ms_P50": 37.993122535899204,
+      "aggregate_SLA_pass": false
+    },
+    "historical_L12D_reference": {
+      "framework": "sglang",
+      "concurrency": 32,
+      "formal_requests": 128,
+      "output_tokens_per_second": 389.8740711045039,
+      "ttft_seconds_P50": 17.757243875414133,
+      "tpot_ms_P50": 36.658604508063725,
+      "aggregate_SLA_pass": false
+    },
+    "vllm_C32_unchanged_reference": {
+      "framework": "vllm",
+      "concurrency": 32,
+      "formal_requests": 128,
+      "output_tokens_per_second": 530.8125387945174,
+      "ttft_seconds_P50": 21.16201964020729,
+      "tpot_ms_P50": 19.15265580107503,
+      "aggregate_SLA_pass": false
+    }
+  },
+  "L17_decode_optimization_accepted": false,
+  "deltas": {
+    "TPS_relative_change_L17_vs_L12D": 0.056650502387609304,
+    "TPOT_P50_relative_change_L17_vs_L12D": 0.03640395060706485,
+    "TPOT_P50_improvement_fraction_L17_vs_L12D": -0.03640395060706485,
+    "TTFT_P50_relative_change_L17_vs_L12D": -0.06197968344659079,
+    "TTFT_P50_improvement_fraction_L17_vs_L12D": 0.06197968344659079,
+    "clock_relative_change_L17_vs_L12D": -0.053613282972564444,
+    "TPS_relative_change_L17_vs_vLLM": -0.223905610752819,
+    "TPOT_P50_relative_change_L17_vs_vLLM": 0.9836999594472254,
+    "TTFT_P50_relative_change_L17_vs_vLLM": -0.21289858887169555,
+    "clock_relative_change_L17_vs_vLLM": 0.2885030659350721,
+    "TPS_relative_change_L12D_vs_vLLM": -0.2655145788569477,
+    "TPOT_P50_relative_change_L12D_vs_vLLM": 0.9140219972003097,
+    "TTFT_P50_relative_change_L12D_vs_vLLM": -0.16089087065792962,
+    "clock_relative_change_L12D_vs_vLLM": 0.3614974119482688
+  },
+  "source_publication_commit": "e478e1b6467b143f45258ea39fd9782eff0d4642",
+  "new_host_validation": false
+}

@@ -1,0 +1,15 @@
+{
+  "name": "glm53-w8a8c8-buffers",
+  "model": "GLM-5.3-W8A8C8",
+  "status": "configuration_startup_evidence_no_accepted_service_speedup",
+  "source_commit": "ce0a8fea5f4245839d174b2b8c55692be1810a7f",
+  "P": {
+    "HCCL_BUFFSIZE": "200",
+    "DEEPEP_HCCL_BUFFSIZE": "2048"
+  },
+  "D": {
+    "HCCL_BUFFSIZE": "200",
+    "DEEPEP_HCCL_BUFFSIZE": "1024"
+  },
+  "applies_to": "Matched historical runtime and role only; size/throughput must be revalidated on actual hardware"
+}

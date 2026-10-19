@@ -1,0 +1,441 @@
+{
+  "schema_version": 1,
+  "files": {
+    ".github/workflows/ascend-tuning-package.yml": {
+      "sha256": "0dcb2fe8d606a9b39400f2bbe1480ddf365d2cad682e6bf1f706b52613240a00",
+      "git_blob_sha1": "8f688aacf4de4b6c1b56d8eb72b0ad58c49e324e",
+      "bytes": 484
+    },
+    "README.md": {
+      "sha256": "310b2eb12f72cad8758d5da63ca511ec84239ed6b946d49a6f7a6d86c514b569",
+      "git_blob_sha1": "5e4a9e111c27f334ff2c8a6700749f85c1e71e93",
+      "bytes": 1840
+    },
+    "README.upstream.md": {
+      "sha256": "ee6908559f95fe54c3f6773ed23e163d76c984f4750445830a343eac6edca1d0",
+      "git_blob_sha1": "37b81417513c3c4c0fcbb818c513cc2162b2a8de",
+      "bytes": 11952
+    },
+    "ascend_tuning/BASELINE.json": {
+      "sha256": "f2ce84d60e34776b6591017d53131216e561b82991ff47bb4659ec025bbcfe16",
+      "git_blob_sha1": "495ea350e7cd0a96f842f64f784ea719b7ba2adf",
+      "bytes": 792
+    },
+    "ascend_tuning/README.md": {
+      "sha256": "14f28515071487928dfb5293326269cdc60a28fa7c8e19f7eab50653e166c48d",
+      "git_blob_sha1": "ddd3989f66f8d33782b03cac7c132329c61878ea",
+      "bytes": 2575
+    },
+    "ascend_tuning/SOURCE_INDEX.json": {
+      "sha256": "150d120c38b2b95d1c59a74cbbdb618ff87620f9aefe2f04a41dcabd4aabbbe3",
+      "git_blob_sha1": "74b2b9080c6bb36b3f8162f9638cb2c2a63a7861",
+      "bytes": 21542
+    },
+    "ascend_tuning/catalog.json": {
+      "sha256": "62e8766e6d7929f1472d2fc95858a248c76db94a7ba2aa18fbc4b3f173202d24",
+      "git_blob_sha1": "2ad610425db3d07cf9ffad046e69fe16ba89e0cc",
+      "bytes": 6097
+    },
+    "ascend_tuning/docs/PORTING.md": {
+      "sha256": "e24daded93d81c8ce37b203e6d56a846fe9322e76ffee7fef0e4ae6a5aef4713",
+      "git_blob_sha1": "41a6171fa0538a2d8dfd2af16ceae101d4aaedc7",
+      "bytes": 1795
+    },
+    "ascend_tuning/evidence/flash-window-results.json": {
+      "sha256": "f227159618f406639903eb0465acb7f46143cfe7742120ab2e97486cade0e404",
+      "git_blob_sha1": "e13b271d883ec03cc4403a16e867c1fdb275bbf6",
+      "bytes": 980
+    },
+    "ascend_tuning/evidence/glm53-C32-results.json": {
+      "sha256": "12decbd3901dd4d56c1eb1ff2c5f8d5b8ee0fbf895555a083bc46e22e78147a7",
+      "git_blob_sha1": "fb21f74b95d744ac523d8a7545332a72c3cf9006",
+      "bytes": 2117
+    },
+    "ascend_tuning/evidence/mechanism36-scope.json": {
+      "sha256": "04acc8339b7a8173cd8387faa0901998ff2326fc7592011d75601566e44a45fc",
+      "git_blob_sha1": "57a02b945ae0b3e3b909e671f9fe8c1d2ed10507",
+      "bytes": 523
+    },
+    "ascend_tuning/experiments/README.md": {
+      "sha256": "d7308d11e3394d249f3a63e6a6ad3a0b53f1c93515f88e97dd783a1ba32ad12e",
+      "git_blob_sha1": "4502a75ea428ef0999aa62f81f9286e843b2f48f",
+      "bytes": 533
+    },
+    "ascend_tuning/experiments/cpu_descriptors/direct_native_columns.py": {
+      "sha256": "fdc287ae67391d323445389da927e7f6aa0f2e3126cdace2bc2da2d8f9a8267a",
+      "git_blob_sha1": "85313846558ad50a9956265e681b5dbc7dac6815",
+      "bytes": 12092
+    },
+    "ascend_tuning/experiments/nocopy/glm53_C32_L17_eager_input_audit_v2.py": {
+      "sha256": "0df4276b5e5f8d10aec1faf25cd24e847dc3ef9a57570f70f257c0ebf539d56f",
+      "git_blob_sha1": "adee32ae2f05bc6b11c7911c2239811223a4346d",
+      "bytes": 23931
+    },
+    "ascend_tuning/experiments/tokenizer_queue/drain_available.py": {
+      "sha256": "439ed10f5937910caa8232fcc924394d4e18fa9b448b8df7cca9fd0b8f787275",
+      "git_blob_sha1": "d98ec2382039c1be76c5b26813af74ec33022ad5",
+      "bytes": 1987
+    },
+    "ascend_tuning/origins.json": {
+      "sha256": "c3bf0c9a3e813ae26726d2aa9e53d444c1c4bcf9beb1703e7f253dca0c2eac20",
+      "git_blob_sha1": "a33cee0685cbae58c7404ad34bc1a2bae74db4d2",
+      "bytes": 797
+    },
+    "ascend_tuning/patches/glm53-flash/indexer-performance.patch": {
+      "sha256": "c141677c76d4b7b9d61d16898143008806da112c4287fc6f752b1feab26fcd8c",
+      "git_blob_sha1": "7b4de38386854f4e268193ae45666b18600462b2",
+      "bytes": 5738
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/kernels/ops/attention/fla/fused_sigmoid_gating_recurrent.py": {
+      "sha256": "76ad0f5b48bd68590df1c052ea39a07368c617231c81c4ef48964a12fb12dc37",
+      "git_blob_sha1": "ee41987a35b1a6adefe117a3427746c97b127461",
+      "bytes": 22785
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/ascend/conn.py": {
+      "sha256": "571f903047aea397538ebadf2284a8721ef438129ebb11929c2c4811426803a4",
+      "git_blob_sha1": "75915a1e3e1041337abfc62661e4864273086bdf",
+      "bytes": 21880
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/ascend/flash_b103_pd_events.py": {
+      "sha256": "82e4569a0d221fe6386e36cf740c3aeb5c16fea136244af15ff39f7ac05e4272",
+      "git_blob_sha1": "168598808c4c251ff7b9f21935abee59a0180a60",
+      "bytes": 1068
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/ascend/flash_b103_pd_inventory_audit.py": {
+      "sha256": "5a26c015319aa59257e3c02bf56cf1478ddd400c937e0189becf2f5d3cb7ca21",
+      "git_blob_sha1": "c21b50a539b6ae5ad16c55ac2c6848bf64aff8cc",
+      "bytes": 4773
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/ascend/sdma_payload_hash.py": {
+      "sha256": "f41911e2d892b91b518b8473d09ba2d5ef7483677c9055fadf3d2e3bd0d96298",
+      "git_blob_sha1": "93f79b477e478b3afb73d0668dca10e50dd6b668",
+      "bytes": 4414
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/ascend/transfer_engine.py": {
+      "sha256": "fdb06b61650d2a54376410d7cd808dab90dbb776cd8faf1ed08c6b8f70511448",
+      "git_blob_sha1": "4a28fdcebbb208ac63262c29fbb948441d4c3acd",
+      "bytes": 15759
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/common/conn.py": {
+      "sha256": "6e0041da5f9c7c148f4477bcd15008bb46629dcb441ff3ebf8f887862697c4ff",
+      "git_blob_sha1": "05aa189687f00346e3e4b6b452ca8782439563d3",
+      "bytes": 101861
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/decode.py": {
+      "sha256": "2739abd8cee969a65f82233933bd3c71239acd5fd852808677812962b3a05672",
+      "git_blob_sha1": "90b96a58e071f7c6ab2865971cd164788c9448d6",
+      "bytes": 139139
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/mooncake/conn.py": {
+      "sha256": "e0346f26e1d37932c7dcfdef85bc9b3d19d8f63c54055de7df1203391d70287a",
+      "git_blob_sha1": "6bb6185906f35f1e06858ac9df7ab46c3c68f682",
+      "bytes": 133874
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/disaggregation/prefill.py": {
+      "sha256": "1cd7f3975cbc898210ca4df0a5020a2b2526aedf63dca2d6b167a12b7e2b908a",
+      "git_blob_sha1": "1b7ca4cd3254f854968f9d457d5e39af8359783c",
+      "bytes": 69043
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/attention/ascend_backend.py": {
+      "sha256": "b76deb848792925be0a5fd596c0b921f034fde90318d6122306c96810c9d8278",
+      "git_blob_sha1": "bfeea9b1a04bdc6d2031e4c692cd7c89375c5aea",
+      "bytes": 162181
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/attention/flash_b103_pd_state_audit.py": {
+      "sha256": "4a96bca006af7f60762c1eaf6c3aa67614d34ff54dd37f36fb267b9c3012496c",
+      "git_blob_sha1": "77b751297fb728a48c549e06c826a5b707ebb99e",
+      "bytes": 2766
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/attention/flash_kda_backend_npu.py": {
+      "sha256": "aad968a6384699f69438f8caa033dd61be9933ffd6c8868cd5cc1f49ec4d7e08",
+      "git_blob_sha1": "dee11c5119fa443e899538eed87a0da3fdaae64d",
+      "bytes": 8447
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/attention/flash_kda_prefix_once_audit.py": {
+      "sha256": "930f414638f788750f5457b853b2128ec62e46f52153771eb6064dc56196d02b",
+      "git_blob_sha1": "32280d297710b21ced0a5c2fb93c371044b84529",
+      "bytes": 4562
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/flash_kpool_memory_pool_npu.py": {
+      "sha256": "8e443fcc45b5ae7868fcee31899c568af09fa3d41e9c1e4fade5cdd9a6142fe4",
+      "git_blob_sha1": "de927db87f21033d5c40a24078a0331ae5c654ef",
+      "bytes": 7537
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/flash_mhc_fixed_rows.py": {
+      "sha256": "e2592b3f01556261624cf11130b802d87e8389552489b228efe006e4fa9a7f22",
+      "git_blob_sha1": "7a8cafc4dbae0ac30bac9bdae47fccc2c6947b2f",
+      "bytes": 2928
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/flash_sparse_nope_npu.py": {
+      "sha256": "3955e0aaee1ca55ef3a08a9dd99fa0737d2efeb832218de8ab6c011fe44e1b31",
+      "git_blob_sha1": "9507ca041ff34ef09702de9e587d03f7c9ee4456",
+      "bytes": 2322
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/memory_pool_npu.py": {
+      "sha256": "b556dd53900aeff77cd913e290d13de03b535c783438162eef9d3a2f8e88e733",
+      "git_blob_sha1": "50ed4b4f933aa9f577df977e424339c712421b2e",
+      "bytes": 48921
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/modules/deepseek_v2_attention_mla_npu.py": {
+      "sha256": "b2e2bf4e0b41fab3226f571a92a59c4e274d9a9b6f10f1aaf5faf65cda6c78b2",
+      "git_blob_sha1": "277f52e532b26787de35d6e81857b26b2adfe94f",
+      "bytes": 25560
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/modules/flash_dsa_nope_npu.py": {
+      "sha256": "5993a6d4b13af416b96dbbc7589eb785661426f892f2ec0b0377bdaae4ed554f",
+      "git_blob_sha1": "e0446bfa19cb207217ed35d34489d1abb07ac1cf",
+      "bytes": 2289
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_indexer_projection_audit.py": {
+      "sha256": "e7ccd577f6f66b820d5b4046f73e89ebedaed04f3a35c7acfa4e93488b817e8b",
+      "git_blob_sha1": "1ff368597ab403cd3ead7881b5d877a460edc642",
+      "bytes": 6119
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_indexer_query_parallel.py": {
+      "sha256": "b10d0b387e4fa283ead4eb842f851148ef49ceab99ae6ac89e326f9fed377a12",
+      "git_blob_sha1": "d9199b00430322ef2cf2a5ab8376e4eec85287f6",
+      "bytes": 2499
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_compression.py": {
+      "sha256": "6deac7412b6d763611f77d65e7dfbca6e47ac4fcc38e8e7511c5e30ab86019c9",
+      "git_blob_sha1": "f4dd76c07bf0308e2356c97aa7b1b035d88456ac",
+      "bytes": 13665
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_compression_abi_audit.py": {
+      "sha256": "244650558b84f5baf5d5ff98b402840d461839173ef4a11a4719d780d82d7713",
+      "git_blob_sha1": "710b09cb5605da88f5e7e35f0af8c5eeae43bf35",
+      "bytes": 13172
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_indexer_npu.py": {
+      "sha256": "f0c0aaaa7c81c59ab06d42524df6402ae70ff61d4ec418e77abe01def6f22d80",
+      "git_blob_sha1": "f65791363f2c59b7c9a13ae04eec85e21f859ea3",
+      "bytes": 9252
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_model_audit_npu.py": {
+      "sha256": "cb2eb2e48bfacd38e7b1972dd15e91d158f0b3481242a6211472339e84521d2c",
+      "git_blob_sha1": "24bc43f75e0941c37d06e25443b94e39b0a92066",
+      "bytes": 4731
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_owned_boundary_npu.py": {
+      "sha256": "3bdddf14f1c0cdd4aa3cdec16a3f9ced0abbe92f24e9f0fbc42cb544a8a6eee1",
+      "git_blob_sha1": "41ec8b7f8659456ad01ef9d58ddf285982dbaa0d",
+      "bytes": 4213
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_score.py": {
+      "sha256": "b1821eb60ef3991fcb6a0b6e9c67ae7e8dd0b8c10fde96ece4c0253a28dbef1c",
+      "git_blob_sha1": "91acc0cbbff5b6a60bb40769a7a06359828a1c1b",
+      "bytes": 16934
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/hardware_backend/npu/ops/flash_kpool_score_abi_audit.py": {
+      "sha256": "568bd87e790ee891d44371250843956451b350b429eaa93d61943730ae23a37a",
+      "git_blob_sha1": "04cead2a105031aa81254c89b9474a0714da9ba7",
+      "bytes": 8251
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/layers/attention/attention_registry.py": {
+      "sha256": "7d07e98a6c00106998ad38751a510163ce92404d57e649f101bcb34610141f59",
+      "git_blob_sha1": "fb5a4c81e8d917dddb6420918b9f67bfd7678fea",
+      "bytes": 21462
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/layers/attention/dsa/dsa_indexer_kpool.py": {
+      "sha256": "a170a06a0c289605333c47f6ed396c6a40834bf688817952c0c328704e588f77",
+      "git_blob_sha1": "2e011bf28913e9506dbbb2a9a17db8dc61fa926e",
+      "bytes": 66342
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/layers/quantization/modelslim/flash_modelslim_fp32_scales.py": {
+      "sha256": "88bed69e4351928a66f23b2288e114bc16e59686cad11f3ac1b3fec13cb63eb0",
+      "git_blob_sha1": "dd18f6959d2308f44dd071d939be23687c499b35",
+      "bytes": 1257
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/layers/quantization/modelslim/modelslim.py": {
+      "sha256": "b9a1ff9a68ed9fff6167f3817361274fae0553772f0ee58718b348aa508df402",
+      "git_blob_sha1": "6d138054e5113aa52e314eb57c58abf5e012dba6",
+      "bytes": 25248
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/disagg_service.py": {
+      "sha256": "dcdb6b426c03197cbca96673d07a793c61cf47e6b49d9b66c10b5c065213be94",
+      "git_blob_sha1": "3ba379594d811eea941feaca0c341d27ef11b030",
+      "bytes": 3744
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/flash_mhc_binding_audit.py": {
+      "sha256": "e901d8783bc575e42ecc3118943cb60ee62af51f7d7d000bab214bfe7e7bfc8f",
+      "git_blob_sha1": "b0c3999cbce1b89551ad9c0f1fb5bcd22a826e6c",
+      "bytes": 1828
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/flash_pd_lifetime_audit.py": {
+      "sha256": "0cf9048425992b76fd87d015c59df1e84bfdae6531a558ba4e861740d1acf7f2",
+      "git_blob_sha1": "902d2c4eb685ad1eddb67d7271c9654b96211945",
+      "bytes": 12926
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/flash_pd_prefill_gate.py": {
+      "sha256": "4f0b368666c19d66734ae85e117f1d8a4d800dda58e9961df4eeac1305a19b16",
+      "git_blob_sha1": "c38095530e7b8598b7ef1dd1ffbaf72544ea949c",
+      "bytes": 2302
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/flash_pd_request_context.py": {
+      "sha256": "fbefe64ba106621cdbb39f5efed6af4fd733843620f5879d08c508dd807aafbb",
+      "git_blob_sha1": "1a11b524cce81a289f7b1673dc2dba13a5212936",
+      "bytes": 2536
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/flash_pd_sdk_shutdown.py": {
+      "sha256": "98e161cae3c8fd8daa7d29897fdcd4c72d11812c4c27b4c00d34a12cc958c3d9",
+      "git_blob_sha1": "dca4fb683b0250102f9464a3ebd97c5f573f8c6e",
+      "bytes": 5267
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/flash_pd_shutdown.py": {
+      "sha256": "092db0475df5ff97e1da4b1986b72b6be84e8799f21ccc6e234abd1c3f541324",
+      "git_blob_sha1": "7f888a2dd8099da7b734a5aa9913e4524a28542e",
+      "bytes": 1354
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/schedule_policy.py": {
+      "sha256": "abca0a872e5852d967afebbc06e1c2a1c1bf9197ba2512a6ac8810882fd4b625",
+      "git_blob_sha1": "275453e88467d7ddfd6ba71d927e7b62dd9f73d0",
+      "bytes": 64531
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/scheduler.py": {
+      "sha256": "bf67744cd55fb77b6b210774c56ed6c7ce4da6e1228e3208d3d61718a1044978",
+      "git_blob_sha1": "c542046f4af1d746e5e6696bf4c0c982afccb0f8",
+      "bytes": 268254
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/managers/tokenizer_manager.py": {
+      "sha256": "fe98764ef5b8021a29ae35cc83015fe9d086c06cdafc3f6e794ebebd8fc98b23",
+      "git_blob_sha1": "05edd7ae618486287a9653086df4a8068055f946",
+      "bytes": 165845
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/mem_cache/memory_pool.py": {
+      "sha256": "e47a1450baa6a98ea1342bf892e5663131a35ada4b290f6552ad0f72799d14fe",
+      "git_blob_sha1": "62bd83c617851de9744a173311124f8e9703b6ee",
+      "bytes": 244327
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/models/deepseek_v2.py": {
+      "sha256": "b8a18b71fadff451605f898a5f07a27ce5368bb0cb0ba27cad3a260a74ee7cde",
+      "git_blob_sha1": "c25189c11dce44a5e62cd0f0b40280b05cab1c7b",
+      "bytes": 142328
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/models/flash_parameter_audit.py": {
+      "sha256": "940ac038bfd3d51440f0533ed6c32d7571be23e05ac12bcbf97e3678f365980f",
+      "git_blob_sha1": "183a70afc33004b5a18a6dfbdea212aa4f1ef776",
+      "bytes": 14015
+    },
+    "ascend_tuning/profiles/glm53-flash-eager/overlay/sglang/srt/models/glm5_next.py": {
+      "sha256": "147beec2752561a56b50b1f19ad786fcb90f2ae38e2de60496b49986d8e0efa4",
+      "git_blob_sha1": "57fde8f42dc8c400ada1bd09af53b3ac0dacfe22",
+      "bytes": 70145
+    },
+    "ascend_tuning/profiles/glm53-w8a8-historical/overlay/sglang/srt/disaggregation/ascend/conn.py": {
+      "sha256": "b49d78a04966c13e95758d30ee66574436e0034dfc24fdb12ecad2bbc5dfd547",
+      "git_blob_sha1": "9e11d2f2eb9cb2c197ea289ab128d5da1d606d88",
+      "bytes": 22333
+    },
+    "ascend_tuning/profiles/glm53-w8a8-historical/overlay/sglang/srt/disaggregation/ascend/transfer_engine.py": {
+      "sha256": "b8824bd9c8365bda4c584d18e3fb0d19a47f083d00c163c65ded3f95db5570b8",
+      "git_blob_sha1": "e73ac0bf1852c22aa4e2e82150047d331cc5c6bc",
+      "bytes": 7475
+    },
+    "ascend_tuning/profiles/glm53-w8a8-historical/support/build_native_extension.py": {
+      "sha256": "073a7850c7421551e2bb8c90fb003029c489eec4980f3b7f3f27e7c723d8d8e8",
+      "git_blob_sha1": "6f70ca925d6735c653799ab5f3ed14f599a93f16",
+      "bytes": 4133
+    },
+    "ascend_tuning/profiles/glm53-w8a8-historical/support/entry.py": {
+      "sha256": "3c5652b0c7143387f47c7add7c600e0ee085a74cd6a1632f0ef92201fdd5c3a8",
+      "git_blob_sha1": "efe233978109b8555e0773f1b11e957bd5570e9b",
+      "bytes": 1336
+    },
+    "ascend_tuning/profiles/glm53-w8a8-historical/support/provider.py": {
+      "sha256": "e49811be51a8699bab78e9ad04750e01ffe6726b849f957c7012ce66b430856b",
+      "git_blob_sha1": "14d8bcc86cb900efa561af05965411b2e8583c5f",
+      "bytes": 3065
+    },
+    "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_C32_hicache_native_import_hook_v2.py": {
+      "sha256": "cb5bd37fd3a3bf718e34734228d70e075d56c9b7a4415d320b2f94fbf311d28d",
+      "git_blob_sha1": "5a6c87a38b2f973868d6948519e93363ee641fc5",
+      "bytes": 2536
+    },
+    "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_C32_hicache_native_mtp_v1.py": {
+      "sha256": "50d7cc8040b9956092dd40fe204bc5d6d3633bf04f1ba6937a8273fc72ac0b2f",
+      "git_blob_sha1": "ced1ad1902f054e93a32bea3d66af583ffc1815d",
+      "bytes": 4346
+    },
+    "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_C32_native_MC_mapping_reuse_v1.py": {
+      "sha256": "daec07cca112741d54bc766d206ca6ccabb27258d5ceb26f79a0573878514a82",
+      "git_blob_sha1": "795d64b7de61b4ae853d374be779e1624c3ea745",
+      "bytes": 2606
+    },
+    "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_C32_target_graph_fullmesh_v2.py": {
+      "sha256": "feb69fcc0020acca1fa2c3ce2774aefa79483a79d8f5221c7c265bff8b37185b",
+      "git_blob_sha1": "97c1deda9e2f82aa39fea415d1f20fb758d9f3fa",
+      "bytes": 6478
+    },
+    "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_deepep_metadata_batch_v1.py": {
+      "sha256": "daf4825ab2579af4cca617cf2746b8a97d30020e7abde47277bc4abe7e009363",
+      "git_blob_sha1": "7069a92b9d9b56a48dbb948edb8ed20d8f1c3c3f",
+      "bytes": 5613
+    },
+    "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_deepep_metadata_import_hook_v1.py": {
+      "sha256": "c4c429ea517c7ac726bf937cc3ab4c0db337c9e92666340af5b075dbec9b2bcb",
+      "git_blob_sha1": "ef9b5589561968d030c4bdeec717702d096ba4ce",
+      "bytes": 1871
+    },
+    "ascend_tuning/profiles/glm53-w8a8-historical/support/python/glm53_sglang_sdma_audit.py": {
+      "sha256": "c7eade14e1c285105aadb3d31bfd173f354ccf274328dc8df71345cde6344008",
+      "git_blob_sha1": "a69842d26c6bfa67741b6fcee148a0cb10ad573f",
+      "bytes": 4845
+    },
+    "ascend_tuning/profiles/glm53-w8a8-historical/support/python/qualify_image_cpu_v1.py": {
+      "sha256": "8ef90b9cecdb655e830cf34223dc680d4841ac773f6899254e509636fc7220b8",
+      "git_blob_sha1": "f4d37cc2c6bbe161a27010d4b1db7d3cfb680501",
+      "bytes": 7659
+    },
+    "ascend_tuning/profiles/glm53-w8a8-historical/support/python/sitecustomize.py": {
+      "sha256": "d677853a805da5febb58ff3a7c1c0ee31841b44047c20120e75ac8a79a86bb81",
+      "git_blob_sha1": "a6bbf110966b95822a9f22154eee81dfdd2a5a36",
+      "bytes": 1558
+    },
+    "ascend_tuning/profiles/glm53-w8a8-historical/support/sdk-preflight.py": {
+      "sha256": "af385c59975bce3c4aacfbd86d7f2407dc5e5c4edc2b6195663ff8172613befe",
+      "git_blob_sha1": "e8b62845b818e66a90f5bfcb1c2607802c1038a0",
+      "bytes": 3022
+    },
+    "ascend_tuning/profiles/glm53-w8a8-historical/support/supervisor.py": {
+      "sha256": "d791e7b729d0c639c3109ee6b8b9ba2c5ccba7d537804cbb37f2970f1df6bde7",
+      "git_blob_sha1": "4d03292e0c866ac41b08a401dbae9c7fedad48ef",
+      "bytes": 4985
+    },
+    "ascend_tuning/profiles/glm53-w8a8c8-buffers/profile.json": {
+      "sha256": "8a7c608dad75e2abdd38cf23772c2a82cbc50387e55214a2a0411a94340bc44f",
+      "git_blob_sha1": "a9afc92bfe1c198e9c50bd76e531d0f5f8973eb3",
+      "bytes": 473
+    },
+    "ascend_tuning/profiles/index.json": {
+      "sha256": "d75d665e3017d3fc4997e113d85a53bfb4af3488167b375932b9acfe88245911",
+      "git_blob_sha1": "45c95ae01c124c170adb4ec3fa3bfe4fe579c9d0",
+      "bytes": 24516
+    },
+    "ascend_tuning/profiles/runtime.example.json": {
+      "sha256": "5fc92086f9eb6ef98053f397170db031464df43f66759c4a899aee7b45b83367",
+      "git_blob_sha1": "db86bc2428a41c669b7638e0f0f5fd69baa12489",
+      "bytes": 504
+    },
+    "ascend_tuning/references/vllm950/README.md": {
+      "sha256": "68acc8c34b7472d60b6c67214926bad7c58bac28bca4a3359936306175eec8b1",
+      "git_blob_sha1": "718bab83dbab4681c37443642ed98df42f131994",
+      "bytes": 340
+    },
+    "ascend_tuning/references/vllm950/compatibility-scope.json": {
+      "sha256": "8572922b7fff6ae16ad98fddc171318eb7f729023b4ce538a12bf2722387d740",
+      "git_blob_sha1": "44e43838e95d71b1fe8d551cccbce3c21c90d109",
+      "bytes": 547
+    },
+    "ascend_tuning/tools/export_profile.py": {
+      "sha256": "e5ee0f9e36d62b49b4189ff99e0b5ffa47ebf804b29f2ac2584580d4181025cd",
+      "git_blob_sha1": "a69a52482b7dc0d3714d4a0c02c24a54430389f7",
+      "bytes": 1984
+    },
+    "ascend_tuning/tools/verify_package.py": {
+      "sha256": "2c0bf63d906d41a3a2c125997dd8beafe360de1511887bd1a35c57f25f970744",
+      "git_blob_sha1": "dc9e3549e0ddb24b74fe78b12d3117eb92e03e1f",
+      "bytes": 2806
+    }
+  },
+  "scope": "Published additions; existing upstream tree is retained"
+}

@@ -1,0 +1,22 @@
+{
+  "repository": "https://github.com/wio1997/Inference-Foundry",
+  "publications": [
+    {
+      "name": "Flash indexer performance and profile",
+      "commit": "c4e00a151ed41cfdf38cecceebb044747046f716",
+      "path": "ascend-framework-comparison/glm53-flash/publications/20261019-indexer-profile-optimization"
+    },
+    {
+      "name": "Original GLM5.3 checkpoint",
+      "commit": "e478e1b6467b143f45258ea39fd9782eff0d4642",
+      "path": "ascend-framework-comparison/glm53"
+    },
+    {
+      "name": "SGLang PD/spec36 startup configuration",
+      "commit": "cefe57bac5ceb495660a7b50218b9f1ff443873b",
+      "path": "tuning-brainstorm/sglang-pd-spec-36"
+    }
+  ],
+  "deepseek950_scope": "vLLM reference only",
+  "new_servers": "No infrastructure inventory or credentials are published"
+}

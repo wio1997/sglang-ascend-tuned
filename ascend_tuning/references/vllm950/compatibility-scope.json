@@ -1,0 +1,9 @@
+{
+  "image": "sha256:f3741cacf511860c74530cb227d62522312ebde5f54a52c305413807e7465633",
+  "original_sha256": "47444be0a5017d012401685d89134200f39c5e706f7941797fa7ecfccf1bba0d",
+  "patched_sha256": "d898dbed8b6571b2f869f1345b26fdee0b92b92f8b3575272dcead17675724f5",
+  "scope": "950DT only; W8A8_DYNAMIC, fusion false, SILU activation with configured clamp; native GMM and clamped SwiGLU + INT8 dynamic quantization",
+  "requires": "ascend_fusion_config.fusion_ops_gmmswigluquant=false",
+  "changes_weights": false,
+  "host_global_changes": false
+}
